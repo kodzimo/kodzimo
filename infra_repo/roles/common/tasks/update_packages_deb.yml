@@ -1,0 +1,6 @@
+---
+- name: Upgrading all apt packages (removing old if needed)
+  ansible.builtin.apt: update_cache=yes upgrade=full force_apt_get=yes update_cache_retries=5
+  become: true
+  register: updates_var_rh
+   

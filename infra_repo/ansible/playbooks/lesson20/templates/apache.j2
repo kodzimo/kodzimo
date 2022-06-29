@@ -1,0 +1,13 @@
+<VirtualHost 192.168.20.101:8084>
+        ServerName localhost
+        ServerAlias www.localhost.com
+        DocumentRoot /opt/apache
+        <Directory /opt/apache>
+                Options Indexes FollowSymLinks
+                AllowOverride All
+                Require all granted
+                DirectoryIndex test.html
+        </Directory>
+        ErrorLog logs/test-error.log
+        CustomLog logs/test-access.log common
+</VirtualHost>

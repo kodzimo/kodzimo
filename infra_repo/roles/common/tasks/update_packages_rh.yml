@@ -1,0 +1,6 @@
+---
+- name: Yum update
+  ansible.builtin.yum: update_cache=yes update_only=yes
+  become: true
+  register: updates_var
+   

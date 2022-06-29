@@ -1,0 +1,5 @@
+[Unit]
+Description=Test unit service
+[Service]
+ExecStart=/home/vagrant/share/unit-script.sh
+[Install]

@@ -1,0 +1,35 @@
+---
+- name: Create group "students"
+  ansible.builtin.group:
+    name: students
+    state: present
+  become: true
+
+- name: Create user "student"
+  ansible.builtin.user:
+    name: student
+    group: students
+    shell: /bin/bash       # Defaults to /bin/bash
+    system: no             # Defaults to no
+    createhome: yes        # Defaults to yes
+    home: /home/student  # Defaults to /home/<username>
+  become: true
+
+- name: opt/student directory creation
+  ansible.builtin.file:
+    path: /opt/student
+    state: directory
+    owner: student
+    group: students
+    mode: '0770'
+  become: true
+
+- name: make student nopasswd sudoer
+  ansible.builtin.copy:
+    dest: /etc/sudoers.d/student
+    content: 'student ALL=(ALL) NOPASSWD:ALL'
+    owner: root
+    group: root
+    mode: '0440'
+  become: true
+   

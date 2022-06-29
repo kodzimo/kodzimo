@@ -1,0 +1,46 @@
+Vagrant.configure("2") do |config|
+  config.vm.provision "file", source: "~/.ssh/tms_ssh", destination: "~/.ssh/id_ed25519"
+  config.vm.provision "file", source: "~/.ssh/tms_ssh.pub", destination: "~/.ssh/id_ed25519.pub"
+  config.vm.provision "shell", :inline => 
+  "cat /home/vagrant/.ssh/id_ed25519.pub >> /home/vagrant/.ssh/authorized_keys"
+  # sudo chmod -x /etc/update-motd.d/*"
+  
+  config.vm.define "cent-serv" do |serv|
+    serv.vm.box = "centos/7"
+    serv.vm.hostname = "hw9-server"
+    serv.vm.network "private_network", ip: "192.168.82.20", bridge: "en0: Wi-Fi"
+    serv.vm.provision "shell", :inline =>
+    "sudo yum install -y epel-release
+    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    sudo yum update -y
+    sudo yum install -y nano
+    sudo yum install -y nginx
+    sudo yum install -y rsync
+    sudo yum install -y lsyncd
+    mkdir /home/vagrant/backup" 
+    serv.vm.provider "virtualbox" do |v|
+      v.memory = 512
+      v.cpus = 1
+      v.name = "hw9-server"
+    end
+  end
+
+  config.vm.define "cent-cli" do |cli|
+    cli.vm.box = "centos/7"
+    cli.vm.hostname = "hw9-client"
+    cli.vm.network "private_network", ip: "192.168.82.2", bridge: "en0: Wi-Fi"
+    cli.vm.provision "shell", path: "script.sh"
+    cli.vm.provision "shell", :inline =>
+    "sudo yum install -y epel-release
+    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    sudo yum update -y
+    sudo yum install -y nano
+    sudo yum install -y rsync
+    sudo yum install -y lsyncd" 
+    cli.vm.provider "virtualbox" do |v|
+      v.memory = 512
+      v.cpus = 1
+      v.name = "hw9-client"
+    end
+  end
+end

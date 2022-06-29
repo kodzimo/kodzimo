@@ -1,0 +1,166 @@
+vagrant@ntp-client:~$ java -version
+openjdk version "11.0.14.1" 2022-02-08
+OpenJDK Runtime Environment Temurin-11.0.14.1+1 (build 11.0.14.1+1)
+OpenJDK 64-Bit Server VM Temurin-11.0.14.1+1 (build 11.0.14.1+1, mixed mode)
+vagrant@ntp-client:~$ ls /usr/lib/jvm
+java-1.8.0-openjdk-amd64  java-8-openjdk-amd64
+vagrant@ntp-client:~$ ls /usr/lib/jvm/java-8-openjdk-amd64
+ASSEMBLY_EXCEPTION  THIRD_PARTY_README  bin  docs  include  jre  lib  man  src.zip
+vagrant@ntp-client:~$ sudo update-alternatives --install /usr/bin/java java usr/lib/jvm/java-8-openjdk-amd64 2
+update-alternatives: error: alternative path is not absolute as it should be: usr/lib/jvm/java-8-openjdk-amd64
+vagrant@ntp-client:~$ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-openjdk-amd64 2
+vagrant@ntp-client:~$ update-java-alternatives -l
+java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
+vagrant@ntp-client:~$ java -version
+openjdk version "11.0.14.1" 2022-02-08
+OpenJDK Runtime Environment Temurin-11.0.14.1+1 (build 11.0.14.1+1)
+OpenJDK 64-Bit Server VM Temurin-11.0.14.1+1 (build 11.0.14.1+1, mixed mode)
+vagrant@ntp-client:~$ sudo update-alternatives --config java
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                    Priority   Status
+------------------------------------------------------------
+* 0            /home/vagrant/jdk-11.0.14.1+1/bin/java   3         auto mode
+  1            /home/vagrant/jdk-11.0.14.1+1/bin/java   3         manual mode
+  2            /usr/lib/jvm/java-8-openjdk-amd64        2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64 to provide /usr/bin/java (java) in manual mode
+vagrant@ntp-client:~$ java -version
+openjdk version "11.0.14.1" 2022-02-08
+OpenJDK Runtime Environment Temurin-11.0.14.1+1 (build 11.0.14.1+1)
+OpenJDK 64-Bit Server VM Temurin-11.0.14.1+1 (build 11.0.14.1+1, mixed mode)
+vagrant@ntp-client:~$ ls /usr/lib/jvm/java-8-openjdk-amd64/bin
+appletviewer  jar           javadoc   jdb    jjs         jstack        orbd        rmiregistry  unpack200
+clhsdb        jarsigner     javah     jdeps  jmap        jstat         pack200     schemagen    wsgen
+extcheck      java          javap     jfr    jps         jstatd        policytool  serialver    wsimport
+hsdb          java-rmi.cgi  jcmd      jhat   jrunscript  keytool       rmic        servertool   xjc
+idlj          javac         jconsole  jinfo  jsadebugd   native2ascii  rmid        tnameserv
+vagrant@ntp-client:~$ sudo update-alternatives --remove java /usr/lib/jvm/java-8-openjdk-amd64
+update-alternatives: removing manually selected alternative - switching java to auto mode
+update-alternatives: using /home/vagrant/jdk-11.0.14.1+1/bin/java to provide /usr/bin/java (java) in auto mode
+vagrant@ntp-client:~$ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-openjdk-amd64/bin/java 2
+vagrant@ntp-client:~$ sudo update-alternatives --config java
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                        Priority   Status
+------------------------------------------------------------
+* 0            /home/vagrant/jdk-11.0.14.1+1/bin/java       3         auto mode
+  1            /home/vagrant/jdk-11.0.14.1+1/bin/java       3         manual mode
+  2            /usr/lib/jvm/java-8-openjdk-amd64/bin/java   2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/bin/java to provide /usr/bin/java (java) in manual mode
+vagrant@ntp-client:~$ sudo update-alternatives --config java
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                        Priority   Status
+------------------------------------------------------------
+  0            /home/vagrant/jdk-11.0.14.1+1/bin/java       3         auto mode
+  1            /home/vagrant/jdk-11.0.14.1+1/bin/java       3         manual mode
+* 2            /usr/lib/jvm/java-8-openjdk-amd64/bin/java   2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: ^C
+vagrant@ntp-client:~$ java -version
+openjdk version "11.0.14.1" 2022-02-08
+OpenJDK Runtime Environment Temurin-11.0.14.1+1 (build 11.0.14.1+1)
+OpenJDK 64-Bit Server VM Temurin-11.0.14.1+1 (build 11.0.14.1+1, mixed mode)
+vagrant@ntp-client:~$ logout
+Connection to 192.168.11.2 closed.
+PS C:\tms\lesson4\work> vagrant reload ubi-cli
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+The machine with the name 'ubi-cli' was not found configured for
+this Vagrant environment.
+PS C:\tms\lesson4\work> vagrant reload ubu-cli
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Attempting graceful shutdown of VM...
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: There was a problem while downloading the metadata for your box
+==> ubu-cli: to check for updates. This is not an error, since it is usually due
+==> ubu-cli: to temporary network problems. This is just a warning. The problem
+==> ubu-cli: encountered was:
+==> ubu-cli:
+==> ubu-cli: The requested URL returned error: 404
+==> ubu-cli:
+==> ubu-cli: If you want to check for box updates, verify your network connection
+==> ubu-cli: is valid and try again.
+==> ubu-cli: Clearing any previously set forwarded ports...
+==> ubu-cli: Clearing any previously set network interfaces...
+==> ubu-cli: Preparing network interfaces based on configuration...
+    ubu-cli: Adapter 1: nat
+    ubu-cli: Adapter 2: hostonly
+==> ubu-cli: Forwarding ports...
+    ubu-cli: 22 (guest) => 2222 (host) (adapter 1)
+==> ubu-cli: Running 'pre-boot' VM customizations...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2222
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+    ubu-cli: Warning: Connection reset. Retrying...
+    ubu-cli: Warning: Connection aborted. Retrying...
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Checking for guest additions in VM...
+    ubu-cli: The guest additions on this VM do not match the installed version of
+    ubu-cli: VirtualBox! In most cases this is fine, but in rare cases it can
+    ubu-cli: prevent things such as shared folders from working properly. If you see
+    ubu-cli: shared folder errors, please make sure the guest additions within the
+    ubu-cli: virtual machine match the version of VirtualBox you have installed on
+    ubu-cli: your host and reload your VM.
+    ubu-cli:
+    ubu-cli: Guest Additions Version: 5.2.42
+    ubu-cli: VirtualBox Version: 6.1
+==> ubu-cli: Setting hostname...
+==> ubu-cli: Configuring and enabling network interfaces...
+==> ubu-cli: Mounting shared folders...
+    ubu-cli: /vagrant => C:/tms/lesson4/work
+    ubu-cli: /home/vagrant/share => C:/tms/lesson4/share-cli
+==> ubu-cli: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> ubu-cli: flag to force provisioning. Provisioners marked to run always will still run.
+PS C:\tms\lesson4\work> ssh ntp-client
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-175-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+2 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Apr  7 12:59:00 2022 from 192.168.11.1
+vagrant@ntp-client:~$ java -version
+openjdk version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-8u312-b07-0ubuntu1~18.04-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+vagrant@ntp-client:~$ sudo update-alternatives --config java
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                        Priority   Status
+------------------------------------------------------------
+  0            /home/vagrant/jdk-11.0.14.1+1/bin/java       3         auto mode
+  1            /home/vagrant/jdk-11.0.14.1+1/bin/java       3         manual mode
+* 2            /usr/lib/jvm/java-8-openjdk-amd64/bin/java   2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: ^C
+vagrant@ntp-client:~$

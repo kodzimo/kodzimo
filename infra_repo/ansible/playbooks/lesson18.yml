@@ -1,0 +1,21 @@
+---
+- name: HW18 playbook
+  hosts: app
+  remote_user: root
+  vars_files:
+    - "{{ inventory_dir }}/group_vars/all"
+    - "{{ inventory_dir }}/group_vars/app"
+
+  tasks:
+    - name: Print the environment of host
+      ansible.builtin.debug:
+        msg: This host {{ inventory_hostname }} is in {{ env }} environment
+
+    - name: Include the common role
+      include_role:
+        name: common
+  
+    - name: Include the jdauphant.nginx role
+      include_role:
+        name: jdauphant.nginx
+   

@@ -1,0 +1,102 @@
+---
+- name: HW20 playbook
+  hosts: hw20
+  remote_user: root
+
+  tasks:
+    - name: installation of httpd, nginx on vm
+      ansible.builtin.package:
+        name: [httpd, nginx]
+        state: present
+
+    - name: opt/nginx and opt/apache directories creation
+      ansible.builtin.file:
+        path: "/opt/{{ item }}"
+        state: directory
+      with_items: ["nginx", "apache"]
+
+    # two blocks below DOESN'T WORK !!!
+    # - name: creation of test.txt files
+    #   ansible.builtin.copy:
+    #     dest: "/opt/{{ item }}/test.txt"
+    #     content: "This is test.txt file in /opt/{{ iteam }} folder"
+    #   with_items: ["nginx", "apache"]
+
+    # - name: creation of test.html files
+    #   ansible.builtin.copy:
+    #     dest: "/opt/{{ item }}/test.html"
+    #     content: "<h1>This is test.html file in /opt/{{ iteam }} folder</h1>"
+    #   with_items: ["nginx", "apache"]
+
+    - name: creation of test.txt files
+      ansible.builtin.copy:
+        dest: "{{ item }}"
+        content: "This is {{ item }} file. Connection successful!"
+      with_items: ["/opt/nginx/test.txt", "/opt/apache/test.txt"]
+
+    - name: creation of test.html files
+      ansible.builtin.copy:
+        dest: "{{ item }}"
+        content: "<h1>This is {{ item }} file. Connection successful!</h1>"
+      with_items: ["/opt/nginx/test.html", "/opt/apache/test.html"]
+
+    # Apache configuration
+    - name: remove Apache default website's config
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: absent
+      with_items: ["/etc/httpd/conf.d/welcome.conf", "/usr/share/httpd/noindex/index.html"]
+
+    - name: Changing Apache default port
+      ansible.builtin.replace:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: 'Listen 80'
+        replace: 'Listen 8084'
+
+    - name: add Apache virtual host configuration file
+      ansible.builtin.template:
+        src: "apache.j2"
+        dest: "/etc/httpd/conf.d/test.conf"
+
+    # Nginx configuration
+    - name: remove Nginx default website
+      ansible.builtin.file:
+        path: /usr/share/nginx/html/index.html
+        state: absent
+
+    - name: Changing Nginx default port
+      ansible.builtin.replace:
+        path: /etc/nginx/nginx.conf
+        after: 'server {'
+        before: 'server_name  _'
+        regexp: '80'
+        replace: '8085'
+    
+    - name: Add Nginx virtual host configuration file
+      ansible.builtin.template:
+        src: "nginx.j2"
+        dest: "/etc/nginx/conf.d/test.conf"
+
+    - name: starting nginx process and enabling it
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: starting Apache process and enabling it
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    # restarting web-servers
+    # - name: Restart Apache
+    #   ansible.builtin.service:
+    #     name: httpd
+    #     state: restarted
+
+    # - name: Restart nginx
+    #   ansible.builtin.service:
+    #     name: nginx
+    #     state: restarted
+   

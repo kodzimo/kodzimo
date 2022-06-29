@@ -1,0 +1,669 @@
+Script started on Sat 02 Apr 2022 03:12:34 PM UTC
+[vagrant@tms-hw3 ~]$ lsblk
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sda      8:0    0  40G  0 disk
+└─sda1   8:1    0  40G  0 part /
+sdb      8:16   0   7G  0 disk
+sdc      8:32   0   3G  0 disk
+[vagrant@tms-hw3 ~]$ pvcreate /dev/sdb
+bash: pvcreate: command not found
+[vagrant@tms-hw3 ~]$ lvm
+bash: lvm: command not found
+[vagrant@tms-hw3 ~]$ lvm2
+bash: lvm2: command not found
+[vagrant@tms-hw3 ~]$ yum install -y lvm2
+Loaded plugins: fastestmirror
+You need to be root to perform this command.
+[vagrant@tms-hw3 ~]$ sudo yum install -y lvm2
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.vsys.host
+ * extras: mirror.vsys.host
+ * updates: mirror.vsys.host
+base                                                                                             | 3.6 kB  00:00:00
+extras                                                                                           | 2.9 kB  00:00:00
+updates                                                                                          | 2.9 kB  00:00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package lvm2.x86_64 7:2.02.187-6.el7_9.5 will be installed
+--> Processing Dependency: lvm2-libs = 7:2.02.187-6.el7_9.5 for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: device-mapper-persistent-data >= 0.7.0-0.1.rc6 for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: liblvm2app.so.2.2(Base)(64bit) for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: libdevmapper-event.so.1.02(Base)(64bit) for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.4)(64bit) for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.1)(64bit) for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: liblvm2app.so.2.2()(64bit) for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: libdevmapper-event.so.1.02()(64bit) for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Processing Dependency: libaio.so.1()(64bit) for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Running transaction check
+---> Package device-mapper-event-libs.x86_64 7:1.02.170-6.el7_9.5 will be installed
+---> Package device-mapper-persistent-data.x86_64 0:0.8.5-3.el7_9.2 will be installed
+---> Package libaio.x86_64 0:0.3.109-13.el7 will be installed
+---> Package lvm2-libs.x86_64 7:2.02.187-6.el7_9.5 will be installed
+--> Processing Dependency: device-mapper-event = 7:1.02.170-6.el7_9.5 for package: 7:lvm2-libs-2.02.187-6.el7_9.5.x86_64--> Running transaction check
+---> Package device-mapper-event.x86_64 7:1.02.170-6.el7_9.5 will be installed
+--> Processing Dependency: device-mapper = 7:1.02.170-6.el7_9.5 for package: 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64
+--> Running transaction check
+---> Package device-mapper.x86_64 7:1.02.164-7.el7_8.1 will be updated
+--> Processing Dependency: device-mapper = 7:1.02.164-7.el7_8.1 for package: 7:device-mapper-libs-1.02.164-7.el7_8.1.x86_64
+---> Package device-mapper.x86_64 7:1.02.170-6.el7_9.5 will be an update
+--> Running transaction check
+---> Package device-mapper-libs.x86_64 7:1.02.164-7.el7_8.1 will be updated
+---> Package device-mapper-libs.x86_64 7:1.02.170-6.el7_9.5 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================================== Package                                  Arch              Version                            Repository          Size
+========================================================================================================================Installing:
+ lvm2                                     x86_64            7:2.02.187-6.el7_9.5               updates            1.3 M
+Installing for dependencies:
+ device-mapper-event                      x86_64            7:1.02.170-6.el7_9.5               updates            192 k
+ device-mapper-event-libs                 x86_64            7:1.02.170-6.el7_9.5               updates            192 k
+ device-mapper-persistent-data            x86_64            0.8.5-3.el7_9.2                    updates            423 k
+ libaio                                   x86_64            0.3.109-13.el7                     base                24 k
+ lvm2-libs                                x86_64            7:2.02.187-6.el7_9.5               updates            1.1 M
+Updating for dependencies:
+ device-mapper                            x86_64            7:1.02.170-6.el7_9.5               updates            297 k
+ device-mapper-libs                       x86_64            7:1.02.170-6.el7_9.5               updates            325 k
+
+Transaction Summary
+========================================================================================================================Install  1 Package  (+5 Dependent packages)
+Upgrade             ( 2 Dependent packages)
+
+Total download size: 3.8 M
+Downloading packages:
+No Presto metadata available for updates
+(1/8): device-mapper-event-libs-1.02.170-6.el7_9.5.x86_64.rpm                                    | 192 kB  00:00:01
+(2/8): libaio-0.3.109-13.el7.x86_64.rpm                                                          |  24 kB  00:00:00
+(3/8): device-mapper-libs-1.02.170-6.el7_9.5.x86_64.rpm                                          | 325 kB  00:00:02
+(4/8): device-mapper-event-1.02.170-6.el7_9.5.x86_64.rpm                                         | 192 kB  00:00:03
+(5/8): device-mapper-persistent-data-0.8.5-3.el7_9.2.x86_64.rpm                                  | 423 kB  00:00:06
+(6/8): device-mapper-1.02.170-6.el7_9.5.x86_64.rpm                                               | 297 kB  00:00:07
+(7/8): lvm2-libs-2.02.187-6.el7_9.5.x86_64.rpm                                                   | 1.1 MB  00:00:08
+(8/8): lvm2-2.02.187-6.el7_9.5.x86_64.rpm                                                        | 1.3 MB  00:00:09
+------------------------------------------------------------------------------------------------------------------------Total                                                                                   333 kB/s | 3.8 MB  00:00:11
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libaio-0.3.109-13.el7.x86_64                                                                        1/10
+  Updating   : 7:device-mapper-libs-1.02.170-6.el7_9.5.x86_64                                                      2/10
+  Updating   : 7:device-mapper-1.02.170-6.el7_9.5.x86_64                                                           3/10
+  Installing : 7:device-mapper-event-libs-1.02.170-6.el7_9.5.x86_64                                                4/10
+  Installing : 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64                                                     5/10
+  Installing : 7:lvm2-libs-2.02.187-6.el7_9.5.x86_64                                                               6/10
+  Installing : device-mapper-persistent-data-0.8.5-3.el7_9.2.x86_64                                                7/10
+  Installing : 7:lvm2-2.02.187-6.el7_9.5.x86_64                                                                    8/10
+  Cleanup    : 7:device-mapper-libs-1.02.164-7.el7_8.1.x86_64                                                      9/10
+  Cleanup    : 7:device-mapper-1.02.164-7.el7_8.1.x86_64                                                          10/10
+  Verifying  : 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64                                                     1/10
+  Verifying  : 7:lvm2-libs-2.02.187-6.el7_9.5.x86_64                                                               2/10
+  Verifying  : device-mapper-persistent-data-0.8.5-3.el7_9.2.x86_64                                                3/10
+  Verifying  : 7:device-mapper-1.02.170-6.el7_9.5.x86_64                                                           4/10
+  Verifying  : libaio-0.3.109-13.el7.x86_64                                                                        5/10
+  Verifying  : 7:lvm2-2.02.187-6.el7_9.5.x86_64                                                                    6/10
+  Verifying  : 7:device-mapper-libs-1.02.170-6.el7_9.5.x86_64                                                      7/10
+  Verifying  : 7:device-mapper-event-libs-1.02.170-6.el7_9.5.x86_64                                                8/10
+  Verifying  : 7:device-mapper-libs-1.02.164-7.el7_8.1.x86_64                                                      9/10
+  Verifying  : 7:device-mapper-1.02.164-7.el7_8.1.x86_64                                                          10/10
+
+Installed:
+  lvm2.x86_64 7:2.02.187-6.el7_9.5
+
+Dependency Installed:
+  device-mapper-event.x86_64 7:1.02.170-6.el7_9.5             device-mapper-event-libs.x86_64 7:1.02.170-6.el7_9.5
+  device-mapper-persistent-data.x86_64 0:0.8.5-3.el7_9.2      libaio.x86_64 0:0.3.109-13.el7
+  lvm2-libs.x86_64 7:2.02.187-6.el7_9.5
+
+Dependency Updated:
+  device-mapper.x86_64 7:1.02.170-6.el7_9.5                device-mapper-libs.x86_64 7:1.02.170-6.el7_9.5
+
+Complete!
+[vagrant@tms-hw3 ~]$ pvcreate /dev/sdb
+  WARNING: Running as a non-root user. Functionality may be unavailable.
+  /run/lvm/lvmetad.socket: connect failed: Permission denied
+  WARNING: Failed to connect to lvmetad. Falling back to device scanning.
+  /run/lock/lvm/P_orphans:aux: open failed: Permission denied
+  Can't get lock for orphan PVs.
+[vagrant@tms-hw3 ~]$ sudo pvcreate /dev/sdb
+  Physical volume "/dev/sdb" successfully created.
+[vagrant@tms-hw3 ~]$ lsblk
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sda      8:0    0  40G  0 disk
+└─sda1   8:1    0  40G  0 part /
+sdb      8:16   0   7G  0 disk
+sdc      8:32   0   3G  0 disk
+[vagrant@tms-hw3 ~]$ sudo pvcreate /dev/sdc
+  Physical volume "/dev/sdc" successfully created.
+[vagrant@tms-hw3 ~]$ pvdisplay
+  WARNING: Running as a non-root user. Functionality may be unavailable.
+  /run/lvm/lvmetad.socket: connect failed: Permission denied
+  WARNING: Failed to connect to lvmetad. Falling back to device scanning.
+  /run/lock/lvm/P_global:aux: open failed: Permission denied
+  Unable to obtain global lock.
+[vagrant@tms-hw3 ~]$ su root
+Password:
+[root@tms-hw3 vagrant]# pvdisplay
+  "/dev/sdc" is a new physical volume of "3.00 GiB"
+  --- NEW Physical volume ---
+  PV Name               /dev/sdc
+  VG Name
+  PV Size               3.00 GiB
+  Allocatable           NO
+  PE Size               0
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               8i97t9-pwsW-nXdH-eg7r-T5pA-iNAJ-5PEfVo
+
+  "/dev/sdb" is a new physical volume of "7.00 GiB"
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb
+  VG Name
+  PV Size               7.00 GiB
+  Allocatable           NO
+  PE Size               0
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               JMS9fw-3pF1-FyMF-WcwX-tOZC-iUEd-OymeiL
+
+[root@tms-hw3 vagrant]# lvmdiskscan
+  /dev/sda1 [     <40.00 GiB]
+  /dev/sdb  [       7.00 GiB] LVM physical volume
+  /dev/sdc  [       3.00 GiB] LVM physical volume
+  0 disks
+  1 partition
+  2 LVM physical volume whole disks
+  0 LVM physical volumes
+[root@tms-hw3 vagrant]# vgcreate vg-hw3 /dev/sdb /dev/sdc
+  Volume group "vg-hw3" successfully created
+[root@tms-hw3 vagrant]# vgs
+  VG     #PV #LV #SN Attr   VSize VFree
+  vg-hw3   2   0   0 wz--n- 9.99g 9.99g
+[root@tms-hw3 vagrant]# lvcreate -l+80%FREE -n lv1 tms-hw3
+  Volume group "tms-hw3" not found
+  Cannot process volume group tms-hw3
+[root@tms-hw3 vagrant]# lvcreate -l+80%FREE -n lv1 vg-hw3
+  Logical volume "lv1" created.
+[root@tms-hw3 vagrant]# lvs
+  LV   VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv1  vg-hw3 -wi-a----- 7.99g
+[root@tms-hw3 vagrant]# vgs
+  VG     #PV #LV #SN Attr   VSize VFree
+  vg-hw3   2   1   0 wz--n- 9.99g 2.00g
+[root@tms-hw3 vagrant]# lvremove lv1
+  Volume group "lv1" not found
+  Cannot process volume group lv1
+[root@tms-hw3 vagrant]# ls /dev
+autofs           fuse          network_latency     sda1      tty1   tty22  tty35  tty48  tty60    usbmon0  vcsa6
+block            hpet          network_throughput  sdb       tty10  tty23  tty36  tty49  tty61    vcs      vfio
+bsg              hugepages     null                sdc       tty11  tty24  tty37  tty5   tty62    vcs1     vga_arbiter
+btrfs-control    hwrng         nvram               sg0       tty12  tty25  tty38  tty50  tty63    vcs2     vg-hw3
+char             initctl       oldmem              sg1       tty13  tty26  tty39  tty51  tty7     vcs3     vhci
+console          input         port                sg2       tty14  tty27  tty4   tty52  tty8     vcs4     vhost-net
+core             kmsg          ppp                 shm       tty15  tty28  tty40  tty53  tty9     vcs5     zero
+cpu              log           ptmx                snapshot  tty16  tty29  tty41  tty54  ttyS0    vcs6
+cpu_dma_latency  loop-control  pts                 snd       tty17  tty3   tty42  tty55  ttyS1    vcsa
+crash            mapper        random              stderr    tty18  tty30  tty43  tty56  ttyS2    vcsa1
+disk             mcelog        raw                 stdin     tty19  tty31  tty44  tty57  ttyS3    vcsa2
+dm-0             mem           rtc                 stdout    tty2   tty32  tty45  tty58  uhid     vcsa3
+fd               mqueue        rtc0                tty       tty20  tty33  tty46  tty59  uinput   vcsa4
+full             net           sda                 tty0      tty21  tty34  tty47  tty6   urandom  vcsa5
+[root@tms-hw3 vagrant]# ls /dev/vg-hw3
+lv1
+[root@tms-hw3 vagrant]# lvremove /dev/vg-hw3/lv1
+Do you really want to remove active logical volume vg-hw3/lv1? [y/n]: y
+  Logical volume "lv1" successfully removed
+[root@tms-hw3 vagrant]# lvcreate -l+70%FREE -n lv1 vg-hw3
+  Logical volume "lv1" created.
+[root@tms-hw3 vagrant]# mkfs.ext4 /dev/vg-hw3/lv1
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=0 blocks
+458752 inodes, 1832960 blocks
+91648 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=1876951040
+56 block groups
+32768 blocks per group, 32768 fragments per group
+8192 inodes per group
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (32768 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+[root@tms-hw3 vagrant]# mkdir /mnt/web
+[root@tms-hw3 vagrant]# mount /dev/vg-hw3/lv1 /mnt/web
+[root@tms-hw3 vagrant]# umount /mnt/web
+[root@tms-hw3 vagrant]# rmdir /mnt/web
+[root@tms-hw3 vagrant]# ls /mnt/
+[root@tms-hw3 vagrant]# mkdir /mnt/tes
+[root@tms-hw3 vagrant]# rmdir /mnt/tes
+[root@tms-hw3 vagrant]# mkdir /mnt/test
+[root@tms-hw3 vagrant]# mount /dev/vg-hw3/lv1 /mnt/test
+[root@tms-hw3 vagrant]# ls /mnt
+test
+[root@tms-hw3 vagrant]# touch /mnt/test/file1
+[root@tms-hw3 vagrant]# touch /mnt/test/file2
+[root@tms-hw3 vagrant]# touch /mnt/test/file3
+[root@tms-hw3 vagrant]# ls /mnt/test/
+file1  file2  file3  lost+found
+[root@tms-hw3 vagrant]# lvresize -l+100% vg-hw3/lv1
+  Specified % is unknown.
+  Invalid argument for --extents: +100%
+  Error during parsing of command line.
+[root@tms-hw3 vagrant]# lvresize -l+100%FREE vg-hw3/lv1
+  Size of logical volume vg-hw3/lv1 changed from 6.99 GiB (1790 extents) to 9.99 GiB (2558 extents).
+  Logical volume vg-hw3/lv1 successfully resized.
+[root@tms-hw3 vagrant]# mkdir /mnt/test-snap
+[root@tms-hw3 vagrant]# mkfs.reiserfs /dev/vg-hw3/lv1
+bash: mkfs.reiserfs: command not found
+[root@tms-hw3 vagrant]# resize2fs /dev/vg-hw3/lv1
+resize2fs 1.42.9 (28-Dec-2013)
+Filesystem at /dev/vg-hw3/lv1 is mounted on /mnt/test; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 2
+The filesystem on /dev/vg-hw3/lv1 is now 2619392 blocks long.
+
+[root@tms-hw3 vagrant]# df -Th
+Filesystem              Type      Size  Used Avail Use% Mounted on
+devtmpfs                devtmpfs  237M     0  237M   0% /dev
+tmpfs                   tmpfs     244M     0  244M   0% /dev/shm
+tmpfs                   tmpfs     244M  4.6M  239M   2% /run
+tmpfs                   tmpfs     244M     0  244M   0% /sys/fs/cgroup
+/dev/sda1               xfs        40G  3.2G   37G   8% /
+tmpfs                   tmpfs      49M     0   49M   0% /run/user/1000
+tmpfs                   tmpfs      49M     0   49M   0% /run/user/0
+/dev/mapper/vg--hw3-lv1 ext4      9.8G   32M  9.2G   1% /mnt/test
+[root@tms-hw3 vagrant]# df -Th /mnt/test
+Filesystem              Type  Size  Used Avail Use% Mounted on
+/dev/mapper/vg--hw3-lv1 ext4  9.8G   32M  9.2G   1% /mnt/test
+[root@tms-hw3 vagrant]# lvcreate -L100M -s test-snap /dev/vg-hw3/lv1
+  The origin name should include the volume group.
+  Run `lvcreate --help' for more information.
+[root@tms-hw3 vagrant]# ls /mnt/test/
+file1  file2  file3  lost+found
+[root@tms-hw3 vagrant]# lvcreate -L100M -s lv1-test-snap /dev/vg-hw3/lv1
+  The origin name should include the volume group.
+  Run `lvcreate --help' for more information.
+[root@tms-hw3 vagrant]# lvcreate --help
+  lvcreate - Create a logical volume
+
+  Create a linear LV.
+  lvcreate -L|--size Size[m|UNIT] VG
+        [ -l|--extents Number[PERCENT] ]
+        [    --type linear ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a striped LV (infers --type striped).
+  lvcreate -i|--stripes Number -L|--size Size[m|UNIT] VG
+        [ -l|--extents Number[PERCENT] ]
+        [ -I|--stripesize Size[k|UNIT] ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a raid1 or mirror LV (infers --type raid1|mirror).
+  lvcreate -m|--mirrors Number -L|--size Size[m|UNIT] VG
+        [ -l|--extents Number[PERCENT] ]
+        [ -R|--regionsize Size[m|UNIT] ]
+        [    --mirrorlog core|disk ]
+        [    --minrecoveryrate Size[k|UNIT] ]
+        [    --maxrecoveryrate Size[k|UNIT] ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a raid LV (a specific raid level must be used, e.g. raid1).
+  lvcreate --type raid -L|--size Size[m|UNIT] VG
+        [ -l|--extents Number[PERCENT] ]
+        [ -m|--mirrors Number ]
+        [ -i|--stripes Number ]
+        [ -I|--stripesize Size[k|UNIT] ]
+        [ -R|--regionsize Size[m|UNIT] ]
+        [    --minrecoveryrate Size[k|UNIT] ]
+        [    --maxrecoveryrate Size[k|UNIT] ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a raid10 LV.
+  lvcreate -m|--mirrors Number -i|--stripes Number -L|--size Size[m|UNIT] VG
+        [ -l|--extents Number[PERCENT] ]
+        [ -I|--stripesize Size[k|UNIT] ]
+        [ -R|--regionsize Size[m|UNIT] ]
+        [    --minrecoveryrate Size[k|UNIT] ]
+        [    --maxrecoveryrate Size[k|UNIT] ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a COW snapshot LV of an origin LV.
+  lvcreate -s|--snapshot -L|--size Size[m|UNIT] LV
+        [ -l|--extents Number[PERCENT] ]
+        [ -i|--stripes Number ]
+        [ -I|--stripesize Size[k|UNIT] ]
+        [ -c|--chunksize Size[k|UNIT] ]
+        [    --type snapshot ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a thin pool.
+  lvcreate --type thin-pool -L|--size Size[m|UNIT] VG
+        [ -l|--extents Number[PERCENT] ]
+        [ -c|--chunksize Size[k|UNIT] ]
+        [ -i|--stripes Number ]
+        [ -I|--stripesize Size[k|UNIT] ]
+        [    --thinpool LV_new ]
+        [    --poolmetadatasize Size[m|UNIT] ]
+        [    --poolmetadataspare y|n ]
+        [    --discards passdown|nopassdown|ignore ]
+        [    --errorwhenfull y|n ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a cache pool.
+  lvcreate --type cache-pool -L|--size Size[m|UNIT] VG
+        [ -l|--extents Number[PERCENT] ]
+        [ -H|--cache ]
+        [ -c|--chunksize Size[k|UNIT] ]
+        [    --poolmetadatasize Size[m|UNIT] ]
+        [    --poolmetadataspare y|n ]
+        [    --cachemode writethrough|writeback|passthrough ]
+        [    --cachepolicy String ]
+        [    --cachesettings String ]
+        [    --cachemetadataformat auto|1|2 ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a thin LV in a thin pool (infers --type thin).
+  lvcreate -V|--virtualsize Size[m|UNIT] --thinpool LV_thinpool VG
+        [ -T|--thin ]
+        [    --type thin ]
+        [    --discards passdown|nopassdown|ignore ]
+        [    --errorwhenfull y|n ]
+        [ COMMON_OPTIONS ]
+
+  Create a thin LV that is a snapshot of an existing thin LV
+  (infers --type thin).
+  lvcreate -s|--snapshot LV_thin
+        [    --type thin ]
+        [    --discards passdown|nopassdown|ignore ]
+        [    --errorwhenfull y|n ]
+        [ COMMON_OPTIONS ]
+
+  Create a thin LV that is a snapshot of an external origin LV.
+  lvcreate --type thin --thinpool LV_thinpool LV
+        [ -T|--thin ]
+        [ -c|--chunksize Size[k|UNIT] ]
+        [    --poolmetadatasize Size[m|UNIT] ]
+        [    --poolmetadataspare y|n ]
+        [    --discards passdown|nopassdown|ignore ]
+        [    --errorwhenfull y|n ]
+        [ COMMON_OPTIONS ]
+
+  Create a thin LV, first creating a thin pool for it,
+  where the new thin pool is named by the --thinpool arg.
+  lvcreate --type thin -V|--virtualsize Size[m|UNIT] -L|--size Size[m|UNIT] --thinpool LV_new
+        [ -l|--extents Number[PERCENT] ]
+        [ -T|--thin ]
+        [ -c|--chunksize Size[k|UNIT] ]
+        [ -i|--stripes Number ]
+        [ -I|--stripesize Size[k|UNIT] ]
+        [    --poolmetadatasize Size[m|UNIT] ]
+        [    --poolmetadataspare y|n ]
+        [    --discards passdown|nopassdown|ignore ]
+        [    --errorwhenfull y|n ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Create a cache LV, first creating a new origin LV,
+  then combining it with the existing cache pool named
+  by the --cachepool arg.
+  lvcreate --type cache -L|--size Size[m|UNIT] --cachepool LV_cachepool VG
+        [ -l|--extents Number[PERCENT] ]
+        [ -H|--cache ]
+        [ -c|--chunksize Size[k|UNIT] ]
+        [ -i|--stripes Number ]
+        [ -I|--stripesize Size[k|UNIT] ]
+        [    --poolmetadatasize Size[m|UNIT] ]
+        [    --poolmetadataspare y|n ]
+        [    --cachemode writethrough|writeback|passthrough ]
+        [    --cachepolicy String ]
+        [    --cachesettings String ]
+        [    --cachemetadataformat auto|1|2 ]
+        [ COMMON_OPTIONS ]
+        [ PV ... ]
+
+  Common options for command:
+        [ -a|--activate y|n|ay ]
+        [ -A|--autobackup y|n ]
+        [ -C|--contiguous y|n ]
+        [ -M|--persistent y|n ]
+        [ -j|--major Number ]
+        [ -k|--setactivationskip y|n ]
+        [ -K|--ignoreactivationskip ]
+        [ -n|--name String ]
+        [ -p|--permission rw|r ]
+        [ -r|--readahead auto|none|Number ]
+        [ -W|--wipesignatures y|n ]
+        [ -Z|--zero y|n ]
+        [    --addtag Tag ]
+        [    --alloc contiguous|cling|cling_by_tags|normal|anywhere|inherit ]
+        [    --ignoremonitoring ]
+        [    --metadataprofile String ]
+        [    --minor Number ]
+        [    --monitor y|n ]
+        [    --nosync ]
+        [    --noudevsync ]
+        [    --reportformat basic|json ]
+
+  Common options for lvm:
+        [ -d|--debug ]
+        [ -h|--help ]
+        [ -q|--quiet ]
+        [ -v|--verbose ]
+        [ -y|--yes ]
+        [ -t|--test ]
+        [    --commandprofile String ]
+        [    --config String ]
+        [    --driverloaded y|n ]
+        [    --lockopt String ]
+        [    --longhelp ]
+        [    --profile String ]
+        [    --version ]
+
+  Use --longhelp to show all options and advanced commands.
+[root@tms-hw3 vagrant]# lvcreate -L100M -s lv1_snap /dev/vg-hw3/lv1
+  The origin name should include the volume group.
+  Run `lvcreate --help' for more information.
+[root@tms-hw3 vagrant]# lvcreate -L100M -s -n lv1_snap /dev/vg-hw3/lv1
+  Volume group "vg-hw3" has insufficient free space (0 extents): 25 required.
+[root@tms-hw3 vagrant]# pvcreate -L1G /dev/sda
+pvcreate: invalid option -- 'L'
+  Error during parsing of command line.
+[root@tms-hw3 vagrant]# vgs
+  VG     #PV #LV #SN Attr   VSize VFree
+  vg-hw3   2   1   0 wz--n- 9.99g    0
+[root@tms-hw3 vagrant]# pvs
+  PV         VG     Fmt  Attr PSize  PFree
+  /dev/sdb   vg-hw3 lvm2 a--  <7.00g    0
+  /dev/sdc   vg-hw3 lvm2 a--  <3.00g    0
+[root@tms-hw3 vagrant]# lvresize -l9GBFREE vg-hw3/lv1
+  Invalid argument for --extents: 9GBFREE
+  Error during parsing of command line.
+[root@tms-hw3 vagrant]# lvresize -l95%FREE vg-hw3/lv1
+  New size of 0 not permitted.
+[root@tms-hw3 vagrant]# lvresize -l+95%FREE vg-hw3/lv1
+  New size (2558 extents) matches existing size (2558 extents).
+[root@tms-hw3 vagrant]# resize2fs /dev/vg-hw3/lv1
+resize2fs 1.42.9 (28-Dec-2013)
+The filesystem is already 2619392 blocks long.  Nothing to do!
+
+[root@tms-hw3 vagrant]# lvcreate -l+100%FREE -s -n lv1_snap1 /dev/vg-hw3/lv1
+  Calculated size of logical volume is 0 extents. Needs to be larger.
+[root@tms-hw3 vagrant]# lvcreate -L500M -s -n lv1_snap1 /dev/vg-hw3/lv1
+  Volume group "vg-hw3" has insufficient free space (0 extents): 125 required.
+[root@tms-hw3 vagrant]# lvcreate -L499M -s -n lv1_snap1 /dev/vg-hw3/lv1
+  Rounding up size to full physical extent 500.00 MiB
+  Volume group "vg-hw3" has insufficient free space (0 extents): 125 required.
+[root@tms-hw3 vagrant]# lvcreate -L150M -s -n lv1_snap1 /dev/vg-hw3/lv1
+  Rounding up size to full physical extent 152.00 MiB
+  Volume group "vg-hw3" has insufficient free space (0 extents): 38 required.
+[root@tms-hw3 vagrant]# lvcreate -L100M -s -n lv1_snap1 /dev/vg-hw3/lv1
+  Volume group "vg-hw3" has insufficient free space (0 extents): 25 required.
+[root@tms-hw3 vagrant]# lvs
+  LV   VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv1  vg-hw3 -wi-ao---- 9.99g
+[root@tms-hw3 vagrant]# pvs
+  PV         VG     Fmt  Attr PSize  PFree
+  /dev/sdb   vg-hw3 lvm2 a--  <7.00g    0
+  /dev/sdc   vg-hw3 lvm2 a--  <3.00g    0
+[root@tms-hw3 vagrant]# lvresize -l+80%FREE vg-hw3/lv1
+  New size (2558 extents) matches existing size (2558 extents).
+[root@tms-hw3 vagrant]# lvreduce -L9GB vg-hw3/lv1
+  WARNING: Reducing active and open logical volume to 9.00 GiB.
+  THIS MAY DESTROY YOUR DATA (filesystem etc.)
+Do you really want to reduce vg-hw3/lv1? [y/n]: n
+  Logical volume vg-hw3/lv1 NOT reduced.
+[root@tms-hw3 vagrant]# umount /mnt/test
+[root@tms-hw3 vagrant]# lvreduce -L9GB vg-hw3/lv1
+  WARNING: Reducing active logical volume to 9.00 GiB.
+  THIS MAY DESTROY YOUR DATA (filesystem etc.)
+Do you really want to reduce vg-hw3/lv1? [y/n]: y
+  Size of logical volume vg-hw3/lv1 changed from 9.99 GiB (2558 extents) to 9.00 GiB (2304 extents).
+  Logical volume vg-hw3/lv1 successfully resized.
+[root@tms-hw3 vagrant]# resize2fs /dev/vg-hw3/lv1
+resize2fs 1.42.9 (28-Dec-2013)
+Please run 'e2fsck -f /dev/vg-hw3/lv1' first.
+
+[root@tms-hw3 vagrant]# e2fsck -f /dev/vg-hw3/lv1
+e2fsck 1.42.9 (28-Dec-2013)
+The filesystem size (according to the superblock) is 2619392 blocks
+The physical size of the device is 2359296 blocks
+Either the superblock or the partition table is likely to be corrupt!
+Abort<y>? no
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/dev/vg-hw3/lv1: 14/655360 files (0.0% non-contiguous), 81958/2619392 blocks
+[root@tms-hw3 vagrant]# resize2fs /dev/vg-hw3/lv1
+resize2fs 1.42.9 (28-Dec-2013)
+Resizing the filesystem on /dev/vg-hw3/lv1 to 2359296 (4k) blocks.
+The filesystem on /dev/vg-hw3/lv1 is now 2359296 blocks long.
+
+[root@tms-hw3 vagrant]# mount /dev/vg-hw3/lv1 /mnt/test
+[root@tms-hw3 vagrant]# ls /mnt/test
+file1  file2  file3  lost+found
+[root@tms-hw3 vagrant]# lvs
+  LV   VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv1  vg-hw3 -wi-ao---- 9.00g
+[root@tms-hw3 vagrant]# pvs
+  PV         VG     Fmt  Attr PSize  PFree
+  /dev/sdb   vg-hw3 lvm2 a--  <7.00g       0
+  /dev/sdc   vg-hw3 lvm2 a--  <3.00g 1016.00m
+[root@tms-hw3 vagrant]# lvcreate -L500M -s -n lv1_snap1 /dev/vg-hw3/lv1
+  Logical volume "lv1_snap1" created.
+[root@tms-hw3 vagrant]# ls /usr/vagrant/
+ls: cannot access /usr/vagrant/: No such file or directory
+[root@tms-hw3 vagrant]# ls /usr/
+bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
+[root@tms-hw3 vagrant]# ls /
+bin   dev  home  lib64  mnt  proc  run   srv       sys  usr      var
+boot  etc  lib   media  opt  root  sbin  swapfile  tmp  vagrant
+[root@tms-hw3 vagrant]# ls /home
+vagrant
+[root@tms-hw3 vagrant]# ls /home/vagrant
+typescript
+[root@tms-hw3 vagrant]# nano /home/vagrant/typescript
+[root@tms-hw3 vagrant]# rm /mnt/test/file2
+rm: remove regular empty file ‘/mnt/test/file2’? y
+[root@tms-hw3 vagrant]# ls /mnt/test/
+file1  file3  lost+found
+[root@tms-hw3 vagrant]# lvs
+  LV        VG     Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv1       vg-hw3 owi-aos---   9.00g
+  lv1_snap1 vg-hw3 swi-a-s--- 500.00m      lv1    0.01
+[root@tms-hw3 vagrant]# ls /mnt.
+ls: cannot access /mnt.: No such file or directory
+[root@tms-hw3 vagrant]# ls /mnt/
+test  test-snap
+[root@tms-hw3 vagrant]# mount /dev/vg-hw3/lv1_snap /mnt/test-snap
+mount: special device /dev/vg-hw3/lv1_snap does not exist
+[root@tms-hw3 vagrant]# mount /dev/vg-hw3/lv1_snap1 /mnt/test-snap
+[root@tms-hw3 vagrant]# ls /mnt/test
+file1  file3  lost+found
+[root@tms-hw3 vagrant]# ls /mnt/test-snap
+file1  file2  file3  lost+found
+[root@tms-hw3 vagrant]# grouplist
+bash: grouplist: command not found
+[root@tms-hw3 vagrant]# cat /etc/group
+root:x:0:
+bin:x:1:
+daemon:x:2:
+sys:x:3:
+adm:x:4:
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mem:x:8:
+kmem:x:9:
+wheel:x:10:
+cdrom:x:11:
+mail:x:12:postfix
+man:x:15:
+dialout:x:18:
+floppy:x:19:
+games:x:20:
+tape:x:33:
+video:x:39:
+ftp:x:50:
+lock:x:54:
+audio:x:63:
+nobody:x:99:
+users:x:100:
+utmp:x:22:
+utempter:x:35:
+input:x:999:
+systemd-journal:x:190:
+systemd-network:x:192:
+dbus:x:81:
+polkitd:x:998:
+rpc:x:32:
+printadmin:x:997:
+ssh_keys:x:996:
+tss:x:59:
+rpcuser:x:29:
+nfsnobody:x:65534:
+sshd:x:74:
+postdrop:x:90:
+postfix:x:89:
+chrony:x:995:
+vagrant:x:1000:vagrant
+[root@tms-hw3 vagrant]# groupadd bar
+[root@tms-hw3 vagrant]# cat /etc/group | grep bar
+bar:x:1001:
+[root@tms-hw3 vagrant]# useradd -m -G bar -s /bin/bash foo
+[root@tms-hw3 vagrant]# cat /etc/passwd | grep foo
+foo:x:1001:1002::/home/foo:/bin/bash
+[root@tms-hw3 vagrant]# mkdir /mnt/test/foobar
+[root@tms-hw3 vagrant]# chown foo:bar /mnt/test/foobar
+[root@tms-hw3 vagrant]# chmod 600 /mnt/test/foobar
+[root@tms-hw3 vagrant]# ls -l /mnt/test/
+total 20
+-rw-r--r--. 1 root root     0 Apr  2 16:27 file1
+-rw-r--r--. 1 root root     0 Apr  2 16:27 file3
+drw-------. 2 foo  bar   4096 Apr  2 19:28 foobar
+drwx------. 2 root root 16384 Apr  2 16:22 lost+found
+[root@tms-hw3 vagrant]# exit
+[vagrant@tms-hw3 ~]$ su vagrant
+Password:
+[vagrant@tms-hw3 ~]$ exit
+
+Script done on Sat 02 Apr 2022 07:40:39 PM UTC

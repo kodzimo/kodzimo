@@ -1,0 +1,6 @@
+nginx_sites:
+  default:
+    - listen 80
+    - location / {
+        proxy_pass http://http.cat;
+      }

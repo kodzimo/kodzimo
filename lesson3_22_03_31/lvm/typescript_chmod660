@@ -1,0 +1,26 @@
+PS C:\tms\lesson3\lvm> ssh tms-hw3
+ssh: Could not resolve hostname tms-hw3: No such host is known.
+PS C:\tms\lesson3\lvm> ssh vagrant@192.168.23.2
+Last login: Sat Apr  2 19:33:15 2022
+[vagrant@tms-hw3 ~]$ scrypt
+-bash: scrypt: command not found
+[vagrant@tms-hw3 ~]$ script
+Script started, file is typescript
+[vagrant@tms-hw3 ~]$ sudo chmod 660 /mnt/test/foobar
+chmod: cannot access ‘/mnt/test/foobar’: No such file or directory
+[vagrant@tms-hw3 ~]$ sudo /mount/dev/vg-hw3/lv1 /mnt/test
+sudo: /mount/dev/vg-hw3/lv1: command not found
+[vagrant@tms-hw3 ~]$ sudo mount /dev/vg-hw3/lv1 /mnt/test
+[vagrant@tms-hw3 ~]$ sudo ls /mnt/test
+file1  file3  foobar  lost+found
+[vagrant@tms-hw3 ~]$ sudo chmod 660 /mnt/test/foobar
+[vagrant@tms-hw3 ~]$ sudo ls -l /mnt/test
+total 20
+-rw-r--r--. 1 root root     0 Apr  2 16:27 file1
+-rw-r--r--. 1 root root     0 Apr  2 16:27 file3
+drw-rw----. 2 foo  bar   4096 Apr  2 19:28 foobar
+drwx------. 2 root root 16384 Apr  2 16:22 lost+found
+[vagrant@tms-hw3 ~]$ exit
+exit
+Script done, file is typescript
+[vagrant@tms-hw3 ~]$

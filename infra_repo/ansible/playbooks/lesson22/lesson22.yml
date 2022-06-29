@@ -1,0 +1,60 @@
+---
+- name: hw22 playbook
+  hosts: hw22
+  remote_user: root
+
+  tasks:
+    - name: installation of nginx on vm
+      ansible.builtin.package:
+        name: nginx
+        state: present
+      become: true
+
+    - name: creation of domain and making it availabe in etc/hosts (on the same machine for now)
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        search_string: '192.168.22.2'
+        line: 192.168.22.2 hw22.local www.hw22.local
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Create private key (RSA, 4096 bits)
+      community.crypto.openssl_privatekey:
+        path: /etc/pki/nginx/private/server.key
+
+    - name: Generate an OpenSSL Certificate Signing Request with Subject information
+      community.crypto.openssl_csr:
+        path: /etc/pki/nginx/server.csr
+        privatekey_path: /etc/pki/nginx/private/server.key
+        country_name: BY
+        organization_name: TMS
+        email_address: admin@hw22.local
+        common_name: www.hw22.local
+
+    - name: Generate a Self Signed OpenSSL certificate
+      community.crypto.x509_certificate:
+        path: /etc/pki/nginx/server.crt
+        privatekey_path: /etc/pki/nginx/private/server.key
+        csr_path: /etc/pki/nginx/server.csr
+        provider: selfsigned
+
+    - name: making certificate trusted on local machine
+      ansible.builtin.copy:
+        src: /etc/pki/nginx/server.crt
+        dest: /etc/pki/ca-trust/source/anchors/server.crt
+
+    - name: update trusted ca
+      ansible.builtin.shell: update-ca-trust extract
+
+    - name: Add Nginx virtual host configuration file 
+      ansible.builtin.template:
+        src: "nginx_tls.j2"
+        dest: "/etc/nginx/conf.d/test.conf"
+
+    - name: starting nginx process and enabling it
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+   

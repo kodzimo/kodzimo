@@ -1,0 +1,759 @@
+PS C:\tms\lesson4\work> vagrant up ubu-cli
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+Bringing machine 'ubu-cli' up with 'virtualbox' provider...
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: Clearing any previously set forwarded ports...
+==> ubu-cli: Clearing any previously set network interfaces...
+==> ubu-cli: Preparing network interfaces based on configuration...
+    ubu-cli: Adapter 1: nat
+    ubu-cli: Adapter 2: hostonly
+==> ubu-cli: Forwarding ports...
+    ubu-cli: 22 (guest) => 2222 (host) (adapter 1)
+==> ubu-cli: Running 'pre-boot' VM customizations...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2222
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+    ubu-cli: Warning: Connection reset. Retrying...
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Checking for guest additions in VM...
+    ubu-cli: The guest additions on this VM do not match the installed version of
+    ubu-cli: VirtualBox! In most cases this is fine, but in rare cases it can
+    ubu-cli: prevent things such as shared folders from working properly. If you see
+    ubu-cli: shared folder errors, please make sure the guest additions within the
+    ubu-cli: virtual machine match the version of VirtualBox you have installed on
+    ubu-cli: your host and reload your VM.
+    ubu-cli:
+    ubu-cli: Guest Additions Version: 5.2.42
+    ubu-cli: VirtualBox Version: 6.1
+==> ubu-cli: Setting hostname...
+==> ubu-cli: Configuring and enabling network interfaces...
+==> ubu-cli: Mounting shared folders...
+    ubu-cli: /vagrant => C:/tms/lesson4/work
+    ubu-cli: /home/vagrant/share => C:/tms/lesson4/share-cli
+==> ubu-cli: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> ubu-cli: flag to force provisioning. Provisioners marked to run always will still run.
+PS C:\tms\lesson4\work> stat
+stat : The term 'stat' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ stat
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (stat:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\tms\lesson4\work> ssh ntp-client
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-175-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-175-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+3 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Apr  7 14:56:12 2022 from 192.168.11.1
+vagrant@ntp-client:~$ stat
+stat: missing operand
+Try 'stat --help' for more information.
+vagrant@ntp-client:~$ ps
+  PID TTY          TIME CMD
+ 2973 pts/0    00:00:00 bash
+ 3033 pts/0    00:00:00 ps
+vagrant@ntp-client:~$ ps fax
+  PID TTY      STAT   TIME COMMAND
+    2 ?        S      0:00 [kthreadd]
+    3 ?        I      0:00  \_ [kworker/0:0]
+    4 ?        I<     0:00  \_ [kworker/0:0H]
+    5 ?        I      0:00  \_ [kworker/u2:0]
+    6 ?        I<     0:00  \_ [mm_percpu_wq]
+    7 ?        S      0:00  \_ [ksoftirqd/0]
+    8 ?        I      0:00  \_ [rcu_sched]
+    9 ?        I      0:00  \_ [rcu_bh]
+   10 ?        S      0:00  \_ [migration/0]
+   11 ?        S      0:00  \_ [watchdog/0]
+   12 ?        S      0:00  \_ [cpuhp/0]
+   13 ?        S      0:00  \_ [kdevtmpfs]
+   14 ?        I<     0:00  \_ [netns]
+   15 ?        S      0:00  \_ [rcu_tasks_kthre]
+   16 ?        S      0:00  \_ [kauditd]
+   17 ?        S      0:00  \_ [khungtaskd]
+   18 ?        S      0:00  \_ [oom_reaper]
+   19 ?        I<     0:00  \_ [writeback]
+   20 ?        S      0:00  \_ [kcompactd0]
+   21 ?        SN     0:00  \_ [ksmd]
+   22 ?        I<     0:00  \_ [crypto]
+   23 ?        I<     0:00  \_ [kintegrityd]
+   24 ?        I<     0:00  \_ [kblockd]
+   25 ?        I<     0:00  \_ [ata_sff]
+   26 ?        I<     0:00  \_ [md]
+   27 ?        I<     0:00  \_ [edac-poller]
+   28 ?        I<     0:00  \_ [devfreq_wq]
+   29 ?        I<     0:00  \_ [watchdogd]
+   30 ?        I      0:00  \_ [kworker/u2:1]
+   31 ?        I      0:00  \_ [kworker/0:1]
+   33 ?        S      0:00  \_ [kswapd0]
+   34 ?        I<     0:00  \_ [kworker/u3:0]
+   35 ?        S      0:00  \_ [ecryptfs-kthrea]
+   77 ?        I<     0:00  \_ [kthrotld]
+   78 ?        I<     0:00  \_ [acpi_thermal_pm]
+   79 ?        S      0:00  \_ [scsi_eh_0]
+   80 ?        I<     0:00  \_ [scsi_tmf_0]
+   81 ?        S      0:00  \_ [scsi_eh_1]
+   82 ?        I<     0:00  \_ [scsi_tmf_1]
+   83 ?        I      0:00  \_ [kworker/u2:2]
+   84 ?        I      0:00  \_ [kworker/u2:3]
+   88 ?        I<     0:00  \_ [ipv6_addrconf]
+   90 ?        I      0:00  \_ [kworker/0:2]
+   98 ?        I<     0:00  \_ [kstrp]
+  115 ?        I<     0:00  \_ [charger_manager]
+  171 ?        I<     0:00  \_ [mpt_poll_0]
+  172 ?        I<     0:00  \_ [mpt/0]
+  173 ?        S      0:00  \_ [scsi_eh_2]
+  174 ?        I<     0:00  \_ [scsi_tmf_2]
+  177 ?        I<     0:00  \_ [kworker/0:1H]
+  251 ?        I<     0:00  \_ [raid5wq]
+  305 ?        S      0:00  \_ [jbd2/sda1-8]
+  306 ?        I<     0:00  \_ [ext4-rsv-conver]
+  392 ?        I<     0:00  \_ [iscsi_eh]
+  404 ?        I<     0:00  \_ [ib-comp-wq]
+  405 ?        I<     0:00  \_ [ib-comp-unb-wq]
+  406 ?        I<     0:00  \_ [ib_mcast]
+  407 ?        I<     0:00  \_ [ib_nl_sa_wq]
+  408 ?        I<     0:00  \_ [rdma_cm]
+  420 ?        I<     0:00  \_ [iprt-VBoxWQueue]
+    1 ?        Ss     0:02 /sbin/init
+  375 ?        S<s    0:00 /lib/systemd/systemd-journald
+  385 ?        Ss     0:00 /sbin/lvmetad -f
+  391 ?        Ss     0:00 /lib/systemd/systemd-udevd
+  635 ?        Ss     0:00 /lib/systemd/systemd-resolved
+  791 ?        Ssl    0:00 /usr/lib/accountsservice/accounts-daemon
+  792 ?        Ssl    0:00 /usr/bin/lxcfs /var/lib/lxcfs/
+  796 ?        Ssl    0:00 /usr/sbin/rsyslogd -n
+  869 ?        Ss     0:00 /lib/systemd/systemd-logind
+  879 ?        Ss     0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --
+  967 ?        Ss     0:00 /usr/sbin/cron -f
+  970 ?        Ss     0:00 /usr/sbin/atd -f
+  978 ?        Ssl    0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+  985 ?        Ss     0:00 /usr/sbin/sshd -D
+ 2896 ?        Ss     0:00  \_ sshd: vagrant [priv]
+ 2972 ?        S      0:00      \_ sshd: vagrant@pts/0
+ 2973 pts/0    Ss     0:00          \_ -bash
+ 3034 pts/0    R+     0:00              \_ ps fax
+  991 ?        Ssl    0:00 /usr/lib/policykit-1/polkitd --no-debug
+  992 ?        Ssl    0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+ 1001 ?        Ss     0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+ 1002 ?        S      0:00  \_ nginx: worker process
+ 1028 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyS0 vt220
+ 1049 ?        Ssl    0:00 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 111:116
+ 1056 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+ 1114 ?        Sl     0:00 /usr/sbin/VBoxService
+ 2234 ?        Ss     0:00 /lib/systemd/systemd-networkd
+ 2898 ?        Ss     0:00 /lib/systemd/systemd --user
+ 2899 ?        S      0:00  \_ (sd-pam)
+vagrant@ntp-client:~$ ls -a /proc/
+.     13   20    2899  375  635  84   acpi         fb           kpagecount    partitions     timer_list
+..    14   21    29    385  7    869  buddyinfo    filesystems  kpageflags    sched_debug    tty
+1     15   22    2972  391  77   879  bus          fs           loadavg       schedstat      uptime
+10    16   2234  2973  392  78   88   cgroups      interrupts   locks         scsi           version
+1001  17   23    3     4    79   9    cmdline      iomem        mdstat        self           version_signature
+1002  171  24    30    404  791  90   consoles     ioports      meminfo       slabinfo       vmallocinfo
+1028  172  25    305   405  792  967  cpuinfo      irq          misc          softirqs       vmstat
+1049  173  251   306   406  796  970  crypto       kallsyms     modules       stat           zoneinfo
+1056  174  26    31    407  8    978  devices      kcore        mounts        swaps
+11    177  27    3100  408  80   98   diskstats    key-users    mpt           sys
+1114  18   28    33    420  81   985  dma          keys         mtrr          sysrq-trigger
+115   19   2896  34    5    82   991  driver       kmsg         net           sysvipc
+12    2    2898  35    6    83   992  execdomains  kpagecgroup  pagetypeinfo  thread-self
+vagrant@ntp-client:~$ ps tree
+error: TTY could not be found
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+vagrant@ntp-client:~$ ps fax
+  PID TTY      STAT   TIME COMMAND
+    2 ?        S      0:00 [kthreadd]
+    3 ?        I      0:00  \_ [kworker/0:0]
+    4 ?        I<     0:00  \_ [kworker/0:0H]
+    5 ?        I      0:00  \_ [kworker/u2:0]
+    6 ?        I<     0:00  \_ [mm_percpu_wq]
+    7 ?        S      0:00  \_ [ksoftirqd/0]
+    8 ?        I      0:00  \_ [rcu_sched]
+    9 ?        I      0:00  \_ [rcu_bh]
+   10 ?        S      0:00  \_ [migration/0]
+   11 ?        S      0:00  \_ [watchdog/0]
+   12 ?        S      0:00  \_ [cpuhp/0]
+   13 ?        S      0:00  \_ [kdevtmpfs]
+   14 ?        I<     0:00  \_ [netns]
+   15 ?        S      0:00  \_ [rcu_tasks_kthre]
+   16 ?        S      0:00  \_ [kauditd]
+   17 ?        S      0:00  \_ [khungtaskd]
+   18 ?        S      0:00  \_ [oom_reaper]
+   19 ?        I<     0:00  \_ [writeback]
+   20 ?        S      0:00  \_ [kcompactd0]
+   21 ?        SN     0:00  \_ [ksmd]
+   22 ?        I<     0:00  \_ [crypto]
+   23 ?        I<     0:00  \_ [kintegrityd]
+   24 ?        I<     0:00  \_ [kblockd]
+   25 ?        I<     0:00  \_ [ata_sff]
+   26 ?        I<     0:00  \_ [md]
+   27 ?        I<     0:00  \_ [edac-poller]
+   28 ?        I<     0:00  \_ [devfreq_wq]
+   29 ?        I<     0:00  \_ [watchdogd]
+   30 ?        I      0:00  \_ [kworker/u2:1]
+   31 ?        I      0:01  \_ [kworker/0:1]
+   33 ?        S      0:00  \_ [kswapd0]
+   34 ?        I<     0:00  \_ [kworker/u3:0]
+   35 ?        S      0:00  \_ [ecryptfs-kthrea]
+   77 ?        I<     0:00  \_ [kthrotld]
+   78 ?        I<     0:00  \_ [acpi_thermal_pm]
+   79 ?        S      0:00  \_ [scsi_eh_0]
+   80 ?        I<     0:00  \_ [scsi_tmf_0]
+   81 ?        S      0:00  \_ [scsi_eh_1]
+   82 ?        I<     0:00  \_ [scsi_tmf_1]
+   83 ?        I      0:00  \_ [kworker/u2:2]
+   84 ?        I      0:00  \_ [kworker/u2:3]
+   88 ?        I<     0:00  \_ [ipv6_addrconf]
+   90 ?        I      0:00  \_ [kworker/0:2]
+   98 ?        I<     0:00  \_ [kstrp]
+  115 ?        I<     0:00  \_ [charger_manager]
+  171 ?        I<     0:00  \_ [mpt_poll_0]
+  172 ?        I<     0:00  \_ [mpt/0]
+  173 ?        S      0:00  \_ [scsi_eh_2]
+  174 ?        I<     0:00  \_ [scsi_tmf_2]
+  177 ?        I<     0:00  \_ [kworker/0:1H]
+  251 ?        I<     0:00  \_ [raid5wq]
+  305 ?        S      0:00  \_ [jbd2/sda1-8]
+  306 ?        I<     0:00  \_ [ext4-rsv-conver]
+  392 ?        I<     0:00  \_ [iscsi_eh]
+  404 ?        I<     0:00  \_ [ib-comp-wq]
+  405 ?        I<     0:00  \_ [ib-comp-unb-wq]
+  406 ?        I<     0:00  \_ [ib_mcast]
+  407 ?        I<     0:00  \_ [ib_nl_sa_wq]
+  408 ?        I<     0:00  \_ [rdma_cm]
+  420 ?        I<     0:00  \_ [iprt-VBoxWQueue]
+    1 ?        Ss     0:02 /sbin/init
+  375 ?        S<s    0:00 /lib/systemd/systemd-journald
+  385 ?        Ss     0:00 /sbin/lvmetad -f
+  391 ?        Ss     0:00 /lib/systemd/systemd-udevd
+  635 ?        Ss     0:00 /lib/systemd/systemd-resolved
+  791 ?        Ssl    0:00 /usr/lib/accountsservice/accounts-daemon
+  792 ?        Ssl    0:00 /usr/bin/lxcfs /var/lib/lxcfs/
+  796 ?        Ssl    0:00 /usr/sbin/rsyslogd -n
+  869 ?        Ss     0:00 /lib/systemd/systemd-logind
+  879 ?        Ss     0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --
+  967 ?        Ss     0:00 /usr/sbin/cron -f
+  970 ?        Ss     0:00 /usr/sbin/atd -f
+  978 ?        Ssl    0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+  985 ?        Ss     0:00 /usr/sbin/sshd -D
+ 2896 ?        Ss     0:00  \_ sshd: vagrant [priv]
+ 2972 ?        S      0:00      \_ sshd: vagrant@pts/0
+ 2973 pts/0    Ss     0:00          \_ -bash
+ 3152 pts/0    R+     0:00              \_ ps fax
+  991 ?        Ssl    0:00 /usr/lib/policykit-1/polkitd --no-debug
+  992 ?        Ssl    0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+ 1001 ?        Ss     0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+ 1002 ?        S      0:00  \_ nginx: worker process
+ 1028 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyS0 vt220
+ 1049 ?        Ssl    0:00 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 111:116
+ 1056 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+ 1114 ?        Sl     0:00 /usr/sbin/VBoxService
+ 2234 ?        Ss     0:00 /lib/systemd/systemd-networkd
+ 2898 ?        Ss     0:00 /lib/systemd/systemd --user
+ 2899 ?        S      0:00  \_ (sd-pam)
+vagrant@ntp-client:~$ ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.9  1.8 225080  8916 ?        Ss   20:46   0:02 /sbin/init
+root         2  0.0  0.0      0     0 ?        S    20:46   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        I    20:46   0:00 [kworker/0:0]
+root         4  0.0  0.0      0     0 ?        I<   20:46   0:00 [kworker/0:0H]
+root         5  0.0  0.0      0     0 ?        I    20:46   0:00 [kworker/u2:0]
+root         6  0.0  0.0      0     0 ?        I<   20:46   0:00 [mm_percpu_wq]
+root         7  0.2  0.0      0     0 ?        S    20:46   0:00 [ksoftirqd/0]
+root         8  0.0  0.0      0     0 ?        I    20:46   0:00 [rcu_sched]
+root         9  0.0  0.0      0     0 ?        I    20:46   0:00 [rcu_bh]
+root        10  0.0  0.0      0     0 ?        S    20:46   0:00 [migration/0]
+root        11  0.0  0.0      0     0 ?        S    20:46   0:00 [watchdog/0]
+root        12  0.0  0.0      0     0 ?        S    20:46   0:00 [cpuhp/0]
+root        13  0.0  0.0      0     0 ?        S    20:46   0:00 [kdevtmpfs]
+root        14  0.0  0.0      0     0 ?        I<   20:46   0:00 [netns]
+root        15  0.0  0.0      0     0 ?        S    20:46   0:00 [rcu_tasks_kthre]
+root        16  0.0  0.0      0     0 ?        S    20:46   0:00 [kauditd]
+root        17  0.0  0.0      0     0 ?        S    20:46   0:00 [khungtaskd]
+root        18  0.0  0.0      0     0 ?        S    20:46   0:00 [oom_reaper]
+root        19  0.0  0.0      0     0 ?        I<   20:46   0:00 [writeback]
+root        20  0.0  0.0      0     0 ?        S    20:46   0:00 [kcompactd0]
+root        21  0.0  0.0      0     0 ?        SN   20:46   0:00 [ksmd]
+root        22  0.0  0.0      0     0 ?        I<   20:46   0:00 [crypto]
+root        23  0.0  0.0      0     0 ?        I<   20:46   0:00 [kintegrityd]
+root        24  0.0  0.0      0     0 ?        I<   20:46   0:00 [kblockd]
+root        25  0.0  0.0      0     0 ?        I<   20:46   0:00 [ata_sff]
+root        26  0.0  0.0      0     0 ?        I<   20:46   0:00 [md]
+root        27  0.0  0.0      0     0 ?        I<   20:46   0:00 [edac-poller]
+root        28  0.0  0.0      0     0 ?        I<   20:46   0:00 [devfreq_wq]
+root        29  0.0  0.0      0     0 ?        I<   20:46   0:00 [watchdogd]
+root        30  0.1  0.0      0     0 ?        I    20:46   0:00 [kworker/u2:1]
+root        31  0.7  0.0      0     0 ?        I    20:46   0:01 [kworker/0:1]
+root        33  0.0  0.0      0     0 ?        S    20:46   0:00 [kswapd0]
+root        34  0.0  0.0      0     0 ?        I<   20:46   0:00 [kworker/u3:0]
+root        35  0.0  0.0      0     0 ?        S    20:46   0:00 [ecryptfs-kthrea]
+root        77  0.0  0.0      0     0 ?        I<   20:46   0:00 [kthrotld]
+root        78  0.0  0.0      0     0 ?        I<   20:46   0:00 [acpi_thermal_pm]
+root        79  0.0  0.0      0     0 ?        S    20:46   0:00 [scsi_eh_0]
+root        80  0.0  0.0      0     0 ?        I<   20:46   0:00 [scsi_tmf_0]
+root        81  0.0  0.0      0     0 ?        S    20:46   0:00 [scsi_eh_1]
+root        82  0.0  0.0      0     0 ?        I<   20:46   0:00 [scsi_tmf_1]
+root        83  0.0  0.0      0     0 ?        I    20:46   0:00 [kworker/u2:2]
+root        84  0.0  0.0      0     0 ?        I    20:46   0:00 [kworker/u2:3]
+root        88  0.0  0.0      0     0 ?        I<   20:46   0:00 [ipv6_addrconf]
+root        90  0.0  0.0      0     0 ?        I    20:46   0:00 [kworker/0:2]
+root        98  0.0  0.0      0     0 ?        I<   20:46   0:00 [kstrp]
+root       115  0.0  0.0      0     0 ?        I<   20:46   0:00 [charger_manager]
+root       171  0.0  0.0      0     0 ?        I<   20:46   0:00 [mpt_poll_0]
+root       172  0.0  0.0      0     0 ?        I<   20:46   0:00 [mpt/0]
+root       173  0.0  0.0      0     0 ?        S    20:46   0:00 [scsi_eh_2]
+root       174  0.0  0.0      0     0 ?        I<   20:46   0:00 [scsi_tmf_2]
+root       177  0.1  0.0      0     0 ?        I<   20:46   0:00 [kworker/0:1H]
+root       251  0.0  0.0      0     0 ?        I<   20:46   0:00 [raid5wq]
+root       305  0.0  0.0      0     0 ?        S    20:46   0:00 [jbd2/sda1-8]
+root       306  0.0  0.0      0     0 ?        I<   20:46   0:00 [ext4-rsv-conver]
+root       375  0.1  2.6  86460 13084 ?        S<s  20:46   0:00 /lib/systemd/systemd-journald
+root       385  0.0  0.3  97716  1776 ?        Ss   20:46   0:00 /sbin/lvmetad -f
+root       391  0.3  1.0  44504  5404 ?        Ss   20:46   0:00 /lib/systemd/systemd-udevd
+root       392  0.0  0.0      0     0 ?        I<   20:46   0:00 [iscsi_eh]
+root       404  0.0  0.0      0     0 ?        I<   20:46   0:00 [ib-comp-wq]
+root       405  0.0  0.0      0     0 ?        I<   20:46   0:00 [ib-comp-unb-wq]
+root       406  0.0  0.0      0     0 ?        I<   20:46   0:00 [ib_mcast]
+root       407  0.0  0.0      0     0 ?        I<   20:46   0:00 [ib_nl_sa_wq]
+root       408  0.0  0.0      0     0 ?        I<   20:46   0:00 [rdma_cm]
+root       420  0.0  0.0      0     0 ?        I<   20:46   0:00 [iprt-VBoxWQueue]
+systemd+   635  0.0  0.9  70632  4588 ?        Ss   20:46   0:00 /lib/systemd/systemd-resolved
+root       791  0.0  1.3 288000  6812 ?        Ssl  20:47   0:00 /usr/lib/accountsservice/accounts-daemon
+root       792  0.0  0.3 161084  1596 ?        Ssl  20:47   0:00 /usr/bin/lxcfs /var/lib/lxcfs/
+syslog     796  0.0  0.8 263044  4144 ?        Ssl  20:47   0:00 /usr/sbin/rsyslogd -n
+root       869  0.0  1.1  70472  5804 ?        Ss   20:47   0:00 /lib/systemd/systemd-logind
+message+   879  0.0  0.8  50164  4132 ?        Ss   20:47   0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofo
+root       967  0.0  0.6  31756  3000 ?        Ss   20:47   0:00 /usr/sbin/cron -f
+daemon     970  0.0  0.4  28340  2252 ?        Ss   20:47   0:00 /usr/sbin/atd -f
+root       978  0.0  2.8 170832 13860 ?        Ssl  20:47   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-sta
+root       985  0.0  1.0  72308  5416 ?        Ss   20:47   0:00 /usr/sbin/sshd -D
+root       991  0.0  1.2 288888  6384 ?        Ssl  20:47   0:00 /usr/lib/policykit-1/polkitd --no-debug
+root       992  0.0  3.3 187564 16480 ?        Ssl  20:47   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unatten
+root      1001  0.0  0.3 141128  1536 ?        Ss   20:47   0:00 nginx: master process /usr/sbin/nginx -g daemon on; mas
+www-data  1002  0.0  1.1 143800  5604 ?        S    20:47   0:00 nginx: worker process
+root      1028  0.0  0.4  16420  2180 ttyS0    Ss+  20:47   0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600
+ntp       1049  0.0  0.7 107776  3628 ?        Ssl  20:47   0:00 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 111:116
+root      1056  0.0  0.3  14896  1836 tty1     Ss+  20:47   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root      1114  0.1  0.4 247456  2124 ?        Sl   20:47   0:00 /usr/sbin/VBoxService
+systemd+  2234  0.0  0.9  80060  4864 ?        Ss   20:47   0:00 /lib/systemd/systemd-networkd
+root      2896  0.0  1.4 107992  7252 ?        Ss   20:48   0:00 sshd: vagrant [priv]
+vagrant   2898  0.0  1.5  76660  7624 ?        Ss   20:48   0:00 /lib/systemd/systemd --user
+vagrant   2899  0.0  0.4 259060  2332 ?        S    20:48   0:00 (sd-pam)
+vagrant   2972  0.0  0.7 107992  3532 ?        R    20:48   0:00 sshd: vagrant@pts/0
+vagrant   2973  0.0  1.0  23220  5148 pts/0    Ss   20:48   0:00 -bash
+vagrant   3168  0.0  0.6  37804  3324 pts/0    R+   20:50   0:00 ps aux
+vagrant@ntp-client:~$ ps axl
+F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0     1     0  20   0 225080  8916 -      Ss   ?          0:02 /sbin/init
+1     0     2     0  20   0      0     0 -      S    ?          0:00 [kthreadd]
+1     0     3     2  20   0      0     0 -      I    ?          0:00 [kworker/0:0]
+1     0     4     2   0 -20      0     0 -      I<   ?          0:00 [kworker/0:0H]
+1     0     5     2  20   0      0     0 -      I    ?          0:00 [kworker/u2:0]
+1     0     6     2   0 -20      0     0 -      I<   ?          0:00 [mm_percpu_wq]
+1     0     7     2  20   0      0     0 -      S    ?          0:00 [ksoftirqd/0]
+1     0     8     2  20   0      0     0 -      I    ?          0:00 [rcu_sched]
+1     0     9     2  20   0      0     0 -      I    ?          0:00 [rcu_bh]
+1     0    10     2 -100  -      0     0 -      S    ?          0:00 [migration/0]
+5     0    11     2 -100  -      0     0 -      S    ?          0:00 [watchdog/0]
+1     0    12     2  20   0      0     0 -      S    ?          0:00 [cpuhp/0]
+5     0    13     2  20   0      0     0 -      S    ?          0:00 [kdevtmpfs]
+1     0    14     2   0 -20      0     0 -      I<   ?          0:00 [netns]
+1     0    15     2  20   0      0     0 -      S    ?          0:00 [rcu_tasks_kthre]
+1     0    16     2  20   0      0     0 -      S    ?          0:00 [kauditd]
+1     0    17     2  20   0      0     0 -      S    ?          0:00 [khungtaskd]
+1     0    18     2  20   0      0     0 -      S    ?          0:00 [oom_reaper]
+1     0    19     2   0 -20      0     0 -      I<   ?          0:00 [writeback]
+1     0    20     2  20   0      0     0 -      S    ?          0:00 [kcompactd0]
+1     0    21     2  25   5      0     0 -      SN   ?          0:00 [ksmd]
+1     0    22     2   0 -20      0     0 -      I<   ?          0:00 [crypto]
+1     0    23     2   0 -20      0     0 -      I<   ?          0:00 [kintegrityd]
+1     0    24     2   0 -20      0     0 -      I<   ?          0:00 [kblockd]
+1     0    25     2   0 -20      0     0 -      I<   ?          0:00 [ata_sff]
+1     0    26     2   0 -20      0     0 -      I<   ?          0:00 [md]
+1     0    27     2   0 -20      0     0 -      I<   ?          0:00 [edac-poller]
+1     0    28     2   0 -20      0     0 -      I<   ?          0:00 [devfreq_wq]
+1     0    29     2   0 -20      0     0 -      I<   ?          0:00 [watchdogd]
+1     0    30     2  20   0      0     0 -      I    ?          0:00 [kworker/u2:1]
+1     0    31     2  20   0      0     0 -      I    ?          0:02 [kworker/0:1]
+1     0    33     2  20   0      0     0 -      S    ?          0:00 [kswapd0]
+1     0    34     2   0 -20      0     0 -      I<   ?          0:00 [kworker/u3:0]
+1     0    35     2  20   0      0     0 -      S    ?          0:00 [ecryptfs-kthrea]
+1     0    77     2   0 -20      0     0 -      I<   ?          0:00 [kthrotld]
+1     0    78     2   0 -20      0     0 -      I<   ?          0:00 [acpi_thermal_pm]
+1     0    79     2  20   0      0     0 -      S    ?          0:00 [scsi_eh_0]
+1     0    80     2   0 -20      0     0 -      I<   ?          0:00 [scsi_tmf_0]
+1     0    81     2  20   0      0     0 -      S    ?          0:00 [scsi_eh_1]
+1     0    82     2   0 -20      0     0 -      I<   ?          0:00 [scsi_tmf_1]
+1     0    83     2  20   0      0     0 -      I    ?          0:00 [kworker/u2:2]
+1     0    84     2  20   0      0     0 -      I    ?          0:00 [kworker/u2:3]
+1     0    88     2   0 -20      0     0 -      I<   ?          0:00 [ipv6_addrconf]
+1     0    90     2  20   0      0     0 -      I    ?          0:00 [kworker/0:2]
+1     0    98     2   0 -20      0     0 -      I<   ?          0:00 [kstrp]
+1     0   115     2   0 -20      0     0 -      I<   ?          0:00 [charger_manager]
+1     0   171     2   0 -20      0     0 -      I<   ?          0:00 [mpt_poll_0]
+1     0   172     2   0 -20      0     0 -      I<   ?          0:00 [mpt/0]
+1     0   173     2  20   0      0     0 -      S    ?          0:00 [scsi_eh_2]
+1     0   174     2   0 -20      0     0 -      I<   ?          0:00 [scsi_tmf_2]
+1     0   177     2   0 -20      0     0 -      I<   ?          0:00 [kworker/0:1H]
+1     0   251     2   0 -20      0     0 -      I<   ?          0:00 [raid5wq]
+1     0   305     2  20   0      0     0 -      S    ?          0:00 [jbd2/sda1-8]
+1     0   306     2   0 -20      0     0 -      I<   ?          0:00 [ext4-rsv-conver]
+4     0   375     1  19  -1  86460 13084 -      S<s  ?          0:00 /lib/systemd/systemd-journald
+4     0   385     1  20   0  97716  1776 -      Ss   ?          0:00 /sbin/lvmetad -f
+4     0   391     1  20   0  44504  5404 -      Ss   ?          0:00 /lib/systemd/systemd-udevd
+1     0   392     2   0 -20      0     0 -      I<   ?          0:00 [iscsi_eh]
+1     0   404     2   0 -20      0     0 -      I<   ?          0:00 [ib-comp-wq]
+1     0   405     2   0 -20      0     0 -      I<   ?          0:00 [ib-comp-unb-wq]
+1     0   406     2   0 -20      0     0 -      I<   ?          0:00 [ib_mcast]
+1     0   407     2   0 -20      0     0 -      I<   ?          0:00 [ib_nl_sa_wq]
+1     0   408     2   0 -20      0     0 -      I<   ?          0:00 [rdma_cm]
+1     0   420     2   0 -20      0     0 -      I<   ?          0:00 [iprt-VBoxWQueue]
+4   101   635     1  20   0  70632  4588 -      Ss   ?          0:00 /lib/systemd/systemd-resolved
+4     0   791     1  20   0 288000  6812 -      Ssl  ?          0:00 /usr/lib/accountsservice/accounts-daemon
+4     0   792     1  20   0 161084  1596 -      Ssl  ?          0:00 /usr/bin/lxcfs /var/lib/lxcfs/
+4   102   796     1  20   0 263044  4144 -      Ssl  ?          0:00 /usr/sbin/rsyslogd -n
+4     0   869     1  20   0  70472  5804 -      Ss   ?          0:00 /lib/systemd/systemd-logind
+4   103   879     1  20   0  50164  4132 -      Ss   ?          0:00 /usr/bin/dbus-daemon --system --address=systemd: --
+4     0   967     1  20   0  31756  3000 -      Ss   ?          0:00 /usr/sbin/cron -f
+4     1   970     1  20   0  28340  2252 -      Ss   ?          0:00 /usr/sbin/atd -f
+4     0   978     1  20   0 170832 13860 -      Ssl  ?          0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run
+4     0   985     1  20   0  72308  5416 -      Ss   ?          0:00 /usr/sbin/sshd -D
+4     0   991     1  20   0 288888  6384 -      Ssl  ?          0:00 /usr/lib/policykit-1/polkitd --no-debug
+4     0   992     1  20   0 187564 16480 -      Ssl  ?          0:00 /usr/bin/python3 /usr/share/unattended-upgrades/una
+1     0  1001     1  20   0 141128  1536 -      Ss   ?          0:00 nginx: master process /usr/sbin/nginx -g daemon on;
+5    33  1002  1001  20   0 143800  5604 -      S    ?          0:00 nginx: worker process
+4     0  1028     1  20   0  16420  2180 -      Ss+  ttyS0      0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9
+5   111  1049     1  20   0 107776  3628 -      Ssl  ?          0:00 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 111:116
+4     0  1056     1  20   0  14896  1836 -      Ss+  tty1       0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+1     0  1114     1  20   0 247456  2124 -      Sl   ?          0:00 /usr/sbin/VBoxService
+4   100  2234     1  20   0  80060  4864 -      Ss   ?          0:00 /lib/systemd/systemd-networkd
+4     0  2896   985  20   0 107992  7252 -      Ss   ?          0:00 sshd: vagrant [priv]
+4  1000  2898     1  20   0  76660  7624 ep_pol Ss   ?          0:00 /lib/systemd/systemd --user
+5  1000  2899  2898  20   0 259060  2332 -      S    ?          0:00 (sd-pam)
+5  1000  2972  2896  20   0 107992  3532 -      R    ?          0:00 sshd: vagrant@pts/0
+0  1000  2973  2972  20   0  23220  5148 wait   Ss   pts/0      0:00 -bash
+0  1000  3174  2973  20   0  29348  1552 -      R+   pts/0      0:00 ps axl
+vagrant@ntp-client:~$ ps aux | grep vagrant
+root      2896  0.0  1.4 107992  7252 ?        Ss   20:48   0:00 sshd: vagrant [priv]
+vagrant   2898  0.0  1.5  76660  7624 ?        Ss   20:48   0:00 /lib/systemd/systemd --user
+vagrant   2899  0.0  0.4 259060  2332 ?        S    20:48   0:00 (sd-pam)
+vagrant   2972  0.0  0.7 107992  3532 ?        S    20:48   0:00 sshd: vagrant@pts/0
+vagrant   2973  0.0  1.0  23220  5148 pts/0    Ss   20:48   0:00 -bash
+vagrant   3277  0.0  0.6  37804  3364 pts/0    R+   20:52   0:00 ps aux
+vagrant   3278  0.0  0.2  14864  1092 pts/0    S+   20:52   0:00 grep --color=auto vagrant
+vagrant@ntp-client:~$ ps -e
+  PID TTY          TIME CMD
+    1 ?        00:00:02 systemd
+    2 ?        00:00:00 kthreadd
+    4 ?        00:00:00 kworker/0:0H
+    5 ?        00:00:00 kworker/u2:0
+    6 ?        00:00:00 mm_percpu_wq
+    7 ?        00:00:00 ksoftirqd/0
+    8 ?        00:00:00 rcu_sched
+    9 ?        00:00:00 rcu_bh
+   10 ?        00:00:00 migration/0
+   11 ?        00:00:00 watchdog/0
+   12 ?        00:00:00 cpuhp/0
+   13 ?        00:00:00 kdevtmpfs
+   14 ?        00:00:00 netns
+   15 ?        00:00:00 rcu_tasks_kthre
+   16 ?        00:00:00 kauditd
+   17 ?        00:00:00 khungtaskd
+   18 ?        00:00:00 oom_reaper
+   19 ?        00:00:00 writeback
+   20 ?        00:00:00 kcompactd0
+   21 ?        00:00:00 ksmd
+   22 ?        00:00:00 crypto
+   23 ?        00:00:00 kintegrityd
+   24 ?        00:00:00 kblockd
+   25 ?        00:00:00 ata_sff
+   26 ?        00:00:00 md
+   27 ?        00:00:00 edac-poller
+   28 ?        00:00:00 devfreq_wq
+   29 ?        00:00:00 watchdogd
+   30 ?        00:00:00 kworker/u2:1
+   31 ?        00:00:02 kworker/0:1
+   33 ?        00:00:00 kswapd0
+   34 ?        00:00:00 kworker/u3:0
+   35 ?        00:00:00 ecryptfs-kthrea
+   77 ?        00:00:00 kthrotld
+   78 ?        00:00:00 acpi_thermal_pm
+   79 ?        00:00:00 scsi_eh_0
+   80 ?        00:00:00 scsi_tmf_0
+   81 ?        00:00:00 scsi_eh_1
+   82 ?        00:00:00 scsi_tmf_1
+   83 ?        00:00:00 kworker/u2:2
+   84 ?        00:00:00 kworker/u2:3
+   88 ?        00:00:00 ipv6_addrconf
+   90 ?        00:00:00 kworker/0:2
+   98 ?        00:00:00 kstrp
+  115 ?        00:00:00 charger_manager
+  171 ?        00:00:00 mpt_poll_0
+  172 ?        00:00:00 mpt/0
+  173 ?        00:00:00 scsi_eh_2
+  174 ?        00:00:00 scsi_tmf_2
+  177 ?        00:00:00 kworker/0:1H
+  251 ?        00:00:00 raid5wq
+  305 ?        00:00:00 jbd2/sda1-8
+  306 ?        00:00:00 ext4-rsv-conver
+  375 ?        00:00:00 systemd-journal
+  385 ?        00:00:00 lvmetad
+  391 ?        00:00:00 systemd-udevd
+  392 ?        00:00:00 iscsi_eh
+  404 ?        00:00:00 ib-comp-wq
+  405 ?        00:00:00 ib-comp-unb-wq
+  406 ?        00:00:00 ib_mcast
+  407 ?        00:00:00 ib_nl_sa_wq
+  408 ?        00:00:00 rdma_cm
+  420 ?        00:00:00 iprt-VBoxWQueue
+  635 ?        00:00:00 systemd-resolve
+  791 ?        00:00:00 accounts-daemon
+  792 ?        00:00:00 lxcfs
+  796 ?        00:00:00 rsyslogd
+  869 ?        00:00:00 systemd-logind
+  879 ?        00:00:00 dbus-daemon
+  967 ?        00:00:00 cron
+  970 ?        00:00:00 atd
+  978 ?        00:00:00 networkd-dispat
+  985 ?        00:00:00 sshd
+  991 ?        00:00:00 polkitd
+  992 ?        00:00:00 unattended-upgr
+ 1001 ?        00:00:00 nginx
+ 1002 ?        00:00:00 nginx
+ 1028 ttyS0    00:00:00 agetty
+ 1049 ?        00:00:00 ntpd
+ 1056 tty1     00:00:00 agetty
+ 1114 ?        00:00:00 VBoxService
+ 2234 ?        00:00:00 systemd-network
+ 2896 ?        00:00:00 sshd
+ 2898 ?        00:00:00 systemd
+ 2899 ?        00:00:00 (sd-pam)
+ 2972 ?        00:00:00 sshd
+ 2973 pts/0    00:00:00 bash
+ 3324 pts/0    00:00:00 ps
+vagrant@ntp-client:~$ ps U vagrant
+  PID TTY      STAT   TIME COMMAND
+ 2898 ?        Ss     0:00 /lib/systemd/systemd --user
+ 2899 ?        S      0:00 (sd-pam)
+ 2972 ?        S      0:00 sshd: vagrant@pts/0
+ 2973 pts/0    Ss     0:00 -bash
+ 3325 pts/0    R+     0:00 ps U vagrant
+vagrant@ntp-client:~$
+vagrant@ntp-client:~$ nohup top
+nohup: ignoring input and appending output to 'nohup.out'
+vagrant@ntp-client:~$ bg
+-bash: bg: current: no such job
+vagrant@ntp-client:~$ top
+top - 06:22:30 up 17 min,  1 user,  load average: 0.00, 0.01, 0.03
+Tasks:  87 total,   1 running,  46 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.3 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+KiB Mem :   492612 total,   157332 free,    80488 used,   254792 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   399016 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+ 2982 vagrant   20   0   42252   3772   3172 R  0.7  0.8   0:00.08 top
+   90 root      20   0       0      0      0 I  0.3  0.0   0:03.83 kworker/0:2
+ 1173 root      20   0  247456   1912   1480 S  0.3  0.4   0:01.05 VBoxService
+ 2564 vagrant   20   0  107992   3616   2616 S  0.3  0.7   0:00.08 sshd
+    1 root      20   0  159676   8860   6644 S  0.0  1.8   0:02.35 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/0:0H
+    5 root      20   0       0      0      0 I  0.0  0.0   0:00.17 kworker/u2:0
+    6 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 mm_percpu_wq
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.22 ksoftirqd/0
+    8 root      20   0       0      0      0 I  0.0  0.0   0:00.16 rcu_sched
+    9 root      20   0       0      0      0 I  0.0  0.0   0:00.00 rcu_bh
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:00.04 watchdog/0
+   12 root      20   0       0      0      0 S  0.0  0.0   0:00.01 cpuhp/0
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+   14 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 netns
+   15 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_tasks_kthre
+   16 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kauditd
+   17 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd
+   18 root      20   0       0      0      0 S  0.0  0.0   0:00.00 oom_reaper
+   19 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 writeback
+   20 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kcompactd0
+   21 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd
+   22 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 crypto
+   23 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kintegrityd
+   24 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kblockd
+   25 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 ata_sff
+   26 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 md
+   27 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 edac-poller
+   28 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 devfreq_wq
+   29 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 watchdogd
+   30 root      20   0       0      0      0 I  0.0  0.0   0:00.16 kworker/u2:1
+   31 root      20   0       0      0      0 I  0.0  0.0   0:00.27 kworker/0:1
+   33 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kswapd0
+   34 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/u3:0
+   35 root      20   0       0      0      0 S  0.0  0.0   0:00.00 ecryptfs-kthrea
+   77 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kthrotld
+   78 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 acpi_thermal_pm
+   79 root      20   0       0      0      0 S  0.0  0.0   0:00.03 scsi_eh_0
+   80 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 scsi_tmf_0
+   81 root      20   0       0      0      0 S  0.0  0.0   0:00.09 scsi_eh_1
+   82 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 scsi_tmf_1
+vagrant@ntp-client:~$ sudo nohup top
+nohup: ignoring input and appending output to 'nohup.out'
+vagrant@ntp-client:~$ bg
+-bash: bg: current: no such job
+vagrant@ntp-client:~$ where top
+where: command not found
+vagrant@ntp-client:~$ whch top
+
+Command 'whch' not found, did you mean:
+
+  command 'wcch' from deb wcc
+  command 'which' from deb debianutils
+
+Try: apt install <deb name>
+
+vagrant@ntp-client:~$ which top
+/usr/bin/top
+vagrant@ntp-client:~$ nohup /usr/bin/top
+nohup: ignoring input and appending output to 'nohup.out'
+vagrant@ntp-client:~$ nohup man
+nohup: ignoring input and appending output to 'nohup.out'
+vagrant@ntp-client:~$ nohup --man
+nohup: invalid option -- '-'
+Try 'nohup --help' for more information.
+vagrant@ntp-client:~$ nohup --help
+Usage: nohup COMMAND [ARG]...
+  or:  nohup OPTION
+Run COMMAND, ignoring hangup signals.
+
+      --help     display this help and exit
+      --version  output version information and exit
+
+If standard input is a terminal, redirect it from an unreadable file.
+If standard output is a terminal, append output to 'nohup.out' if possible,
+'$HOME/nohup.out' otherwise.
+If standard error is a terminal, redirect it to standard output.
+To save output to FILE, use 'nohup COMMAND > FILE'.
+
+NOTE: your shell may have its own version of nohup, which usually supersedes
+the version described here.  Please refer to your shell's documentation
+for details about the options it supports.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Report nohup translation bugs to <http://translationproject.org/team/>
+Full documentation at: <http://www.gnu.org/software/coreutils/nohup>
+or available locally via: info '(coreutils) nohup invocation'
+vagrant@ntp-client:~$ fg
+-bash: fg: current: no such job
+vagrant@ntp-client:~$ nohup top &
+[1] 3401
+vagrant@ntp-client:~$ nohup: ignoring input and appending output to 'nohup.out'
+^C
+[1]+  Exit 1                  nohup top
+vagrant@ntp-client:~$ bg
+-bash: bg: current: no such job
+vagrant@ntp-client:~$ which nohup.out
+vagrant@ntp-client:~$ which nohup
+/usr/bin/nohup
+vagrant@ntp-client:~$ la /usr/bin/nohup/
+ls: cannot access '/usr/bin/nohup/': Not a directory
+vagrant@ntp-client:~$ la /usr/bin/nohup
+/usr/bin/nohup
+vagrant@ntp-client:~$ la ~/
+.bash_history  .bash_logout  .bashrc  .cache  .gnupg  .profile  .ssh  jdk-11.0.14.1+1  mycron  nohup.out  share
+vagrant@ntp-client:~$ nohup top &
+[1] 3514
+vagrant@ntp-client:~$ nohup: ignoring input and appending output to 'nohup.out'
+bg
+-bash: bg: job has terminated
+[1]+  Exit 1                  nohup top
+vagrant@ntp-client:~$ nohup top &
+[1] 3520
+vagrant@ntp-client:~$ nohup: ignoring input and appending output to 'nohup.out'
+fg
+-bash: fg: job has terminated
+[1]+  Exit 1                  nohup top
+vagrant@ntp-client:~$ killall -u vagrant
+vagrant@ntp-client:~$ ps U vagrant
+  PID TTY      STAT   TIME COMMAND
+ 2564 ?        S      0:00 sshd: vagrant@pts/0
+ 2565 pts/0    Ss     0:00 -bash
+ 3544 pts/0    R+     0:00 ps U vagrant
+vagrant@ntp-client:~$ ps aux | grep vagrant
+root      2486  0.0  1.4 107992  7232 ?        Ss   06:07   0:00 sshd: vagrant [priv]
+vagrant   2564  0.0  0.7 107992  3616 ?        S    06:07   0:00 sshd: vagrant@pts/0
+vagrant   2565  0.0  1.0  23220  5092 pts/0    Ss   06:07   0:00 -bash
+vagrant   3545  0.0  0.6  37804  3312 pts/0    R+   06:41   0:00 ps aux
+vagrant   3546  0.0  0.2  11340  1096 pts/0    R+   06:41   0:00 grep --color=auto vagrant
+vagrant@ntp-client:~$ killall -u vagrant
+vagrant@ntp-client:~$ ps aux | grep vagrant
+root      2486  0.0  1.4 107992  7232 ?        Ss   06:07   0:00 sshd: vagrant [priv]
+vagrant   2564  0.0  0.7 107992  3616 ?        S    06:07   0:00 sshd: vagrant@pts/0
+vagrant   2565  0.0  1.0  23220  5092 pts/0    Ss   06:07   0:00 -bash
+vagrant   3548  0.0  0.6  37804  3364 pts/0    R+   06:42   0:00 ps aux
+vagrant   3549  0.0  0.0    548     4 pts/0    R+   06:42   0:00 grep --color=auto vagrant
+vagrant@ntp-client:~$
+vagrant@ntp-client:~$ screen --version
+Screen version 4.06.02 (GNU) 23-Oct-17
+vagrant@ntp-client:~$ screen -S ping_test
+[detached from 3650.ping_test]
+[detached from 3650.ping_test]
+vagrant@ntp-client:~$ screen -ls
+There is a screen on:
+        3650.ping_test  (04/09/22 06:57:19)     (Detached)
+1 Socket in /run/screen/S-vagrant.
+vagrant@ntp-client:~$ screen -r
+[detached from 3650.ping_test]
+[detached from 3650.ping_test]
+vagrant@ntp-client:~$ screen -ls
+There is a screen on:
+        3650.ping_test  (04/09/22 06:57:18)     (Detached)
+1 Socket in /run/screen/S-vagrant.
+vagrant@ntp-client:~$ screen -r
+[screen is terminating]
+vagrant@ntp-client:~$ [screen is terminating]
+vagrant@ntp-client:~$ screen -ls
+No Sockets found in /run/screen/S-vagrant.
+
+vagrant@ntp-client:~$

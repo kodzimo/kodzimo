@@ -1,0 +1,17 @@
+- name: HW17 playbook
+  hosts: hosts
+  remote_user: root
+
+  tasks:
+    - name: installation of wget, htop, nginx on centos and ubuntu distros
+      ansible.builtin.package:
+        name: [wget, htop, nginx]
+        state: present
+      become: true
+
+    - name: starting nginx process, if not started
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+      become: true      

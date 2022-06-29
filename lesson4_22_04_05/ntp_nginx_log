@@ -1,0 +1,1548 @@
+PS C:\tms\lesson3\lvm> cd C:\tms\lesson4\work
+PS C:\tms\lesson4\work> vagrant validate
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+Vagrantfile validated successfully.
+PS C:\tms\lesson4\work> vagrant up
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+Bringing machine 'ubu-serv' up with 'virtualbox' provider...
+Bringing machine 'ubu-cli' up with 'virtualbox' provider...
+==> ubu-serv: Importing base box 'ubuntu/bionic64'...
+==> ubu-serv: Matching MAC address for NAT networking...
+==> ubu-serv: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-serv: There was a problem while downloading the metadata for your box
+==> ubu-serv: to check for updates. This is not an error, since it is usually due
+==> ubu-serv: to temporary network problems. This is just a warning. The problem
+==> ubu-serv: encountered was:
+==> ubu-serv:
+==> ubu-serv: The requested URL returned error: 404
+==> ubu-serv:
+==> ubu-serv: If you want to check for box updates, verify your network connection
+==> ubu-serv: is valid and try again.
+==> ubu-serv: Setting the name of the VM: ntp_server
+==> ubu-serv: Clearing any previously set network interfaces...
+==> ubu-serv: Preparing network interfaces based on configuration...
+    ubu-serv: Adapter 1: nat
+    ubu-serv: Adapter 2: hostonly
+==> ubu-serv: Forwarding ports...
+    ubu-serv: 22 (guest) => 2222 (host) (adapter 1)
+==> ubu-serv: Running 'pre-boot' VM customizations...
+==> ubu-serv: Booting VM...
+==> ubu-serv: Waiting for machine to boot. This may take a few minutes...
+    ubu-serv: SSH address: 127.0.0.1:2222
+    ubu-serv: SSH username: vagrant
+    ubu-serv: SSH auth method: private key
+    ubu-serv: Warning: Connection reset. Retrying...
+    ubu-serv:
+    ubu-serv: Vagrant insecure key detected. Vagrant will automatically replace
+    ubu-serv: this with a newly generated keypair for better security.
+    ubu-serv:
+    ubu-serv: Inserting generated public key within guest...
+    ubu-serv: Removing insecure key from the guest if it's present...
+    ubu-serv: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> ubu-serv: Machine booted and ready!
+==> ubu-serv: Checking for guest additions in VM...
+    ubu-serv: The guest additions on this VM do not match the installed version of
+    ubu-serv: VirtualBox! In most cases this is fine, but in rare cases it can
+    ubu-serv: prevent things such as shared folders from working properly. If you see
+    ubu-serv: shared folder errors, please make sure the guest additions within the
+    ubu-serv: virtual machine match the version of VirtualBox you have installed on
+    ubu-serv: your host and reload your VM.
+    ubu-serv:
+    ubu-serv: Guest Additions Version: 5.2.42
+    ubu-serv: VirtualBox Version: 6.1
+==> ubu-serv: Setting hostname...
+==> ubu-serv: Configuring and enabling network interfaces...
+==> ubu-serv: Mounting shared folders...
+    ubu-serv: /vagrant => C:/tms/lesson4/work
+    ubu-serv: /home/vagrant/share => C:/tms/lesson4/share-serv
+==> ubu-serv: Running provisioner: file...
+    ubu-serv: ~/.ssh/tms_ssh.pub => ~/.ssh/tms_ssh.pub
+==> ubu-serv: Running provisioner: shell...
+    ubu-serv: Running: inline script
+==> ubu-cli: Importing base box 'ubuntu/bionic64'...
+==> ubu-cli: Matching MAC address for NAT networking...
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: Setting the name of the VM: ntp_client
+==> ubu-cli: Fixed port collision for 22 => 2222. Now on port 2200.
+==> ubu-cli: Clearing any previously set network interfaces...
+==> ubu-cli: Preparing network interfaces based on configuration...
+    ubu-cli: Adapter 1: nat
+    ubu-cli: Adapter 2: hostonly
+==> ubu-cli: Forwarding ports...
+    ubu-cli: 22 (guest) => 2200 (host) (adapter 1)
+==> ubu-cli: Running 'pre-boot' VM customizations...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2200
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+    ubu-cli:
+    ubu-cli: Vagrant insecure key detected. Vagrant will automatically replace
+    ubu-cli: this with a newly generated keypair for better security.
+    ubu-cli:
+    ubu-cli: Inserting generated public key within guest...
+    ubu-cli: Removing insecure key from the guest if it's present...
+    ubu-cli: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Checking for guest additions in VM...
+    ubu-cli: The guest additions on this VM do not match the installed version of
+    ubu-cli: VirtualBox! In most cases this is fine, but in rare cases it can
+    ubu-cli: prevent things such as shared folders from working properly. If you see
+    ubu-cli: shared folder errors, please make sure the guest additions within the
+    ubu-cli: virtual machine match the version of VirtualBox you have installed on
+    ubu-cli: your host and reload your VM.
+    ubu-cli:
+    ubu-cli: Guest Additions Version: 5.2.42
+    ubu-cli: VirtualBox Version: 6.1
+==> ubu-cli: Setting hostname...
+==> ubu-cli: Configuring and enabling network interfaces...
+==> ubu-cli: Mounting shared folders...
+    ubu-cli: /vagrant => C:/tms/lesson4/work
+    ubu-cli: /home/vagrant/share => C:/tms/lesson4/share-cli
+==> ubu-cli: Running provisioner: file...
+    ubu-cli: ~/.ssh/tms_ssh.pub => ~/.ssh/tms_ssh.pub
+==> ubu-cli: Running provisioner: shell...
+    ubu-cli: Running: inline script
+PS C:\tms\lesson4\work> ssh ntp-server
+The authenticity of host '192.168.11.20 (192.168.11.20)' can't be established.
+ECDSA key fingerprint is SHA256:u4osO1vuv+1qENb/fimJ6glP7IjmskjHtJRtreg1zms.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.11.20' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 20:23:34 UTC 2022
+
+  System load:  0.0               Processes:             84
+  Usage of /:   2.8% of 38.71GB   Users logged in:       0
+  Memory usage: 24%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.20
+
+
+0 updates can be applied immediately.
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+vagrant@ntp-server:~$ apt-get install ntp
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+vagrant@ntp-server:~$ su apt-get install ntp
+No passwd entry for user 'apt-get'
+vagrant@ntp-server:~$ sudo apt-get install ntp
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Package ntp is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Package 'ntp' has no installation candidate
+vagrant@ntp-server:~$ nano /etc/apt/sources.list
+vagrant@ntp-server:~$ sudo apt search ntp
+Sorting... Done
+Full Text Search... Done
+chrony/bionic-updates,bionic-security 3.2-4ubuntu4.5 amd64
+  Versatile implementation of the Network Time Protocol
+
+rdate/bionic 1:1.2-6 amd64
+  sets the system's date from a remote host
+
+vagrant@ntp-server:~$ nano /etc/apt/sources.list
+vagrant@ntp-server:~$ sudo apt-get update
+Hit:1 http://archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+Get:6 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2170 kB]
+Get:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [380 kB]
+Get:8 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [690 kB]
+Get:9 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [94.1 kB]
+Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1187 kB]
+Get:11 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [273 kB]
+Get:12 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [17.6 kB]
+Get:13 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [3660 B]
+Get:14 http://archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [2517 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [472 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [714 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [98.0 kB]
+Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1802 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [390 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [24.8 kB]
+Get:24 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [6012 B]
+Get:25 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [10.8 kB]
+Get:26 http://archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [5016 B]
+Get:27 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [11.6 kB]
+Get:28 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [5864 B]
+Fetched 24.9 MB in 51s (492 kB/s)
+Reading package lists... Done
+vagrant@ntp-server:~$ sudo apt-get install ntp
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  libopts25 sntp
+Suggested packages:
+  ntp-doc
+The following NEW packages will be installed:
+  libopts25 ntp sntp
+0 upgraded, 3 newly installed, 0 to remove and 17 not upgraded.
+Need to get 785 kB of archives.
+After this operation, 2393 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu bionic/universe amd64 libopts25 amd64 1:5.18.12-4 [58.2 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 ntp amd64 1:4.2.8p10+dfsg-5ubuntu7.3 [640 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 sntp amd64 1:4.2.8p10+dfsg-5ubuntu7.3 [86.5 kB]
+Fetched 785 kB in 4s (200 kB/s)
+Selecting previously unselected package libopts25:amd64.
+(Reading database ... 60142 files and directories currently installed.)
+Preparing to unpack .../libopts25_1%3a5.18.12-4_amd64.deb ...
+Unpacking libopts25:amd64 (1:5.18.12-4) ...
+Selecting previously unselected package ntp.
+Preparing to unpack .../ntp_1%3a4.2.8p10+dfsg-5ubuntu7.3_amd64.deb ...
+Unpacking ntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+Selecting previously unselected package sntp.
+Preparing to unpack .../sntp_1%3a4.2.8p10+dfsg-5ubuntu7.3_amd64.deb ...
+Unpacking sntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+Setting up libopts25:amd64 (1:5.18.12-4) ...
+Setting up sntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+Setting up ntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+Created symlink /etc/systemd/system/network-pre.target.wants/ntp-systemd-netif.path → /lib/systemd/system/ntp-systemd-netif.path.
+Created symlink /etc/systemd/system/multi-user.target.wants/ntp.service → /lib/systemd/system/ntp.service.
+ntp-systemd-netif.service is a disabled or a static unit, not starting it.
+Processing triggers for systemd (237-3ubuntu10.53) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.5) ...
+vagrant@ntp-server:~$ sudo systemctl enable ntp || sudo update-rc.d ntp defaults
+Synchronizing state of ntp.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable ntp
+vagrant@ntp-server:~$ sudo update-rc.d ntp defaults
+vagrant@ntp-server:~$ sudo update-rc.d ntp defaults
+vagrant@ntp-server:~$ nano /etc/init.d/ntp
+vagrant@ntp-server:~$ nano /etc/ntp.conf
+vagrant@ntp-server:~$ nano /etc/ntp.conf
+vagrant@ntp-server:~$ sudo echo -e "server 3.by.pool.ntp.org prefer\nserver 1.europe.pool.ntp.org\nserver 0.europe.pool.ntp.org" >> /etc/ntp/conf
+-bash: /etc/ntp/conf: No such file or directory
+vagrant@ntp-server:~$ sudo echo -e "server 3.by.pool.ntp.org prefer\nserver 1.europe.pool.ntp.org\nserver 0.europe.pool.ntp.org" >> /etc/ntp.conf
+-bash: /etc/ntp.conf: Permission denied
+vagrant@ntp-server:~$ su
+Password:
+su: Authentication failure
+vagrant@ntp-server:~$ su
+Password:
+su: Authentication failure
+vagrant@ntp-server:~$ passwd root
+passwd: You may not view or modify password information for root.
+vagrant@ntp-server:~$ sudo passwd root
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+vagrant@ntp-server:~$ su
+Password:
+root@ntp-server:/home/vagrant# sudo echo -e "server 3.by.pool.ntp.org prefer\nserver 1.europe.pool.ntp.org\nserver 0.europe.pool.ntp.org" >> /etc/ntp.conf
+root@ntp-server:/home/vagrant# exit
+exit
+vagrant@ntp-server:~$ nano /etc/ntp.conf
+vagrant@ntp-server:~$ nano /etc/ntp.conf
+vagrant@ntp-server:~$ ls -l /etc/ntp
+ls: cannot access '/etc/ntp': No such file or directory
+vagrant@ntp-server:~$ ls -l /etc/ntp/
+ls: cannot access '/etc/ntp/': No such file or directory
+vagrant@ntp-server:~$ ls -l /etc | grep ntp
+-rw-r--r-- 1 root root       2607 Apr  6 20:53 ntp.conf
+vagrant@ntp-server:~$ cat /etc/passwd | grep vagrant
+vagrant:x:1000:1000:,,,:/home/vagrant:/bin/bash
+vagrant@ntp-server:~$ cat /etc/group | grep vagrant
+vagrant:x:1000:
+vagrant@ntp-server:~$ cat /etc/group | grep root
+root:x:0:
+vagrant@ntp-server:~$ sudo chmod 660 /etc/ntp
+chmod: cannot access '/etc/ntp': No such file or directory
+vagrant@ntp-server:~$ sudo chmod 660 /etc/ntp.conf
+vagrant@ntp-server:~$ sudo echo -e "server 3.by.pool.ntp.org prefer\nserver 1.europe.pool.ntp.org\nserver 0.europe.pool.ntp.org" >> /etc/ntp.conf
+-bash: /etc/ntp.conf: Permission denied
+vagrant@ntp-server:~$ sudo chmod 606 /etc/ntp.conf
+vagrant@ntp-server:~$ sudo echo -e "server 3.by.pool.ntp.org prefer\nserver 1.europe.pool.ntp.org\nserver 0.europe.pool.ntp.org" >> /etc/ntp.conf
+vagrant@ntp-server:~$ nano /etc/ntp.conf
+vagrant@ntp-server:~$ sudo service ntp restart
+vagrant@ntp-server:~$ ntpq -p
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+ 0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+ 1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+ 2.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+ 3.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+ ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000    0.000   0.000
+ 82.209.228.234  178.124.164.107  3 u   17   64    1   83.966   -1.001   0.000
+ smtp.irtech.ch  195.176.26.205   2 u   18   64    1   89.617   15.374   0.000
+ radha.parvati.i 193.204.114.233  2 u   15   64    1   84.786   27.597   0.000
+ tick.ntp.infoma .GPS.            1 u   19   64    1   68.875   23.407   0.000
+ 178.249.167.0 ( 92.21.53.217     2 u   19   64    1  104.745   20.593   0.000
+ 194.158.196.172 194.190.168.1    2 u   19   64    1   65.106    9.333   0.000
+*178.124.164.106 .MRS.            1 u   10   64    1   46.962   15.096   6.755
++194.158.196.171 158.75.5.245     2 u    7   64    1   58.744   21.257   5.779
+ gate.mgts.by    31.130.200.2     3 u    7   64    1   47.285   14.938   4.505
+-86.57.135.115 ( 178.124.134.106  3 u    9   64    1   53.323   13.778   8.531
+ 178.124.164.105 .MRS.            1 u    5   64    1   60.371   12.250  11.619
++mirror.datacent 192.36.144.22    2 u    8   64    1   59.635   18.617   3.985
+ ns1.datahata.by 194.190.168.1    2 u    6   64    1   48.124   19.607   2.773
+ alphyn.canonica 17.253.34.253    2 u   14   64    1  165.312   22.636   0.000
+ golem.canonical 145.238.203.14   2 u   15   64    1   91.845   25.288   0.000
+ pugot.canonical 17.253.108.125   2 u   13   64    1   93.902   23.984   0.000
+vagrant@ntp-server:~$ sudo ufw allow from any to any port 123 proto udp
+Rules updated
+Rules updated (v6)
+vagrant@ntp-server:~$ exit
+logout
+Connection to 192.168.11.20 closed.
+PS C:\tms\lesson4\work> ssh ntp-client
+The authenticity of host '192.168.11.2 (192.168.11.2)' can't be established.
+ECDSA key fingerprint is SHA256:5wr2WpxM0QuXdTuEMChtP9j49S/cjqukw0YnDm1//LI.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.11.2' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 21:15:49 UTC 2022
+
+  System load:  0.32              Processes:             84
+  Usage of /:   2.8% of 38.71GB   Users logged in:       0
+  Memory usage: 24%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.2
+
+
+0 updates can be applied immediately.
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+vagrant@ntp-client:~$ exit
+logout
+Connection to 192.168.11.2 closed.
+PS C:\tms\lesson4\work> ssh ntp-server
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 21:19:36 UTC 2022
+
+  System load:  0.08              Processes:             86
+  Usage of /:   3.3% of 38.71GB   Users logged in:       0
+  Memory usage: 26%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.20
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 20:23:34 2022 from 192.168.11.1
+vagrant@ntp-server:~$ ls ~/share
+ntp_sis.sh
+vagrant@ntp-server:~$ exit
+logout
+Connection to 192.168.11.20 closed.
+PS C:\tms\lesson4\work> ssh ntp-server
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 21:21:38 UTC 2022
+
+  System load:  0.03              Processes:             86
+  Usage of /:   3.3% of 38.71GB   Users logged in:       0
+  Memory usage: 26%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.20
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 21:19:37 2022 from 192.168.11.1
+vagrant@ntp-server:~$ ls -l /etc |grep hosts
+-rw-r--r-- 1 root root        292 Apr  6 16:38 hosts
+-rw-r--r-- 1 root root        411 Mar 25 14:16 hosts.allow
+-rw-r--r-- 1 root root        711 Mar 25 14:16 hosts.deny
+vagrant@ntp-server:~$ exit
+logout
+Connection to 192.168.11.20 closed.
+PS C:\tms\lesson4\work> ssh ntp-server
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 21:42:17 UTC 2022
+
+  System load:  0.08              Processes:             86
+  Usage of /:   3.3% of 38.71GB   Users logged in:       0
+  Memory usage: 26%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.20
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 21:21:39 2022 from 192.168.11.1
+vagrant@ntp-server:~$ crontab -l
+no crontab for vagrant
+vagrant@ntp-server:~$ crontab -l >> mycron
+no crontab for vagrant
+vagrant@ntp-server:~$ ls ~/
+mycron  share
+vagrant@ntp-server:~$ cat mycron
+vagrant@ntp-server:~$ exit
+logout
+Connection to 192.168.11.20 closed.
+PS C:\tms\lesson4\work> vagrant snapshot push ubu-cli
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Snapshotting the machine as 'push_1649282124_276'...
+==> ubu-cli: Snapshot saved! You can restore the snapshot at any time by
+==> ubu-cli: using `vagrant snapshot restore`. You can delete it using
+==> ubu-cli: `vagrant snapshot delete`.
+PS C:\tms\lesson4\work> vagrant reload ubu-cli --provision
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+There are errors in the configuration of this machine. Please fix
+the following errors and try again:
+
+shell provisioner:
+* `path` for shell provisioner does not exist on the host system: C:/home/vagrant/share/ntp_cis.sh
+
+PS C:\tms\lesson4\work> vagrant validate
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+There are errors in the configuration of this machine. Please fix
+the following errors and try again:
+
+shell provisioner:
+* `path` for shell provisioner does not exist on the host system: C:/home/vagrant/share/ntp_sis.sh
+
+PS C:\tms\lesson4\work> vagrant validate
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+There are errors in the configuration of this machine. Please fix
+the following errors and try again:
+
+shell provisioner:
+* `path` for shell provisioner does not exist on the host system: C:/tms/lesson4/share-cli/ntp_cis.sh
+
+PS C:\tms\lesson4\work> vagrant validate
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+Vagrantfile validated successfully.
+PS C:\tms\lesson4\work> vagrant reload ubu-cli --provision
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Attempting graceful shutdown of VM...
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: There was a problem while downloading the metadata for your box
+==> ubu-cli: to check for updates. This is not an error, since it is usually due
+==> ubu-cli: to temporary network problems. This is just a warning. The problem
+==> ubu-cli: encountered was:
+==> ubu-cli:
+==> ubu-cli: The requested URL returned error: 404
+==> ubu-cli:
+==> ubu-cli: If you want to check for box updates, verify your network connection
+==> ubu-cli: is valid and try again.
+==> ubu-cli: Clearing any previously set forwarded ports...
+==> ubu-cli: Fixed port collision for 22 => 2222. Now on port 2200.
+==> ubu-cli: Clearing any previously set network interfaces...
+==> ubu-cli: Preparing network interfaces based on configuration...
+    ubu-cli: Adapter 1: nat
+    ubu-cli: Adapter 2: hostonly
+==> ubu-cli: Forwarding ports...
+    ubu-cli: 22 (guest) => 2200 (host) (adapter 1)
+==> ubu-cli: Running 'pre-boot' VM customizations...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2200
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Checking for guest additions in VM...
+    ubu-cli: The guest additions on this VM do not match the installed version of
+    ubu-cli: VirtualBox! In most cases this is fine, but in rare cases it can
+    ubu-cli: prevent things such as shared folders from working properly. If you see
+    ubu-cli: shared folder errors, please make sure the guest additions within the
+    ubu-cli: virtual machine match the version of VirtualBox you have installed on
+    ubu-cli: your host and reload your VM.
+    ubu-cli:
+    ubu-cli: Guest Additions Version: 5.2.42
+    ubu-cli: VirtualBox Version: 6.1
+==> ubu-cli: Setting hostname...
+==> ubu-cli: Configuring and enabling network interfaces...
+==> ubu-cli: Mounting shared folders...
+    ubu-cli: /vagrant => C:/tms/lesson4/work
+    ubu-cli: /home/vagrant/share => C:/tms/lesson4/share-cli
+==> ubu-cli: Running provisioner: shell...
+    ubu-cli: Running: C:/Users/demix/AppData/Local/Temp/vagrant-shell20220407-9100-1rh3pi6.sh
+    ubu-cli: Hit:1 http://archive.ubuntu.com/ubuntu bionic InRelease
+    ubu-cli: Get:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+    ubu-cli: Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+    ubu-cli: Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+    ubu-cli: Get:5 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2170 kB]
+    ubu-cli: Get:6 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+    ubu-cli: Get:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [380 kB]
+    ubu-cli: Get:8 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [690 kB]
+    ubu-cli: Get:9 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [94.1 kB]
+    ubu-cli: Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1187 kB]
+    ubu-cli: Get:11 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [273 kB]
+    ubu-cli: Get:12 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [17.6 kB]
+    ubu-cli: Get:13 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [3660 B]
+    ubu-cli: Get:14 http://archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+    ubu-cli: Get:15 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+    ubu-cli: Get:16 http://archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+    ubu-cli: Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [2517 kB]
+    ubu-cli: Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [472 kB]
+    ubu-cli: Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [714 kB]
+    ubu-cli: Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [98.0 kB]
+    ubu-cli: Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1802 kB]
+    ubu-cli: Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [390 kB]
+    ubu-cli: Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [24.8 kB]
+    ubu-cli: Get:24 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [6012 B]
+    ubu-cli: Get:25 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [10.8 kB]
+    ubu-cli: Get:26 http://archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [5016 B]
+    ubu-cli: Get:27 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [11.6 kB]
+    ubu-cli: Get:28 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [5864 B]
+    ubu-cli: Fetched 24.9 MB in 56s (444 kB/s)
+    ubu-cli: Reading package lists...
+    ubu-cli: Reading package lists...
+    ubu-cli: Building dependency tree...
+    ubu-cli: Reading state information...
+    ubu-cli: The following NEW packages will be installed:
+    ubu-cli:   ntpdate
+    ubu-cli: 0 upgraded, 1 newly installed, 0 to remove and 17 not upgraded.
+    ubu-cli: Need to get 51.3 kB of archives.
+    ubu-cli: After this operation, 183 kB of additional disk space will be used.
+    ubu-cli: Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 ntpdate amd64 1:4.2.8p10+dfsg-5ubuntu7.3 [51.3 kB]
+    ubu-cli: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+    ubu-cli: Fetched 51.3 kB in 0s (115 kB/s)
+    ubu-cli: Selecting previously unselected package ntpdate.
+(Reading database ... 60142 files and directories currently installed.)
+    ubu-cli: Preparing to unpack .../ntpdate_1%3a4.2.8p10+dfsg-5ubuntu7.3_amd64.deb ...
+    ubu-cli: Unpacking ntpdate (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Setting up ntpdate (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+    ubu-cli: Reading package lists...
+    ubu-cli: Building dependency tree...
+    ubu-cli: Reading state information...
+    ubu-cli: The following additional packages will be installed:
+    ubu-cli:   libopts25 sntp
+    ubu-cli: Suggested packages:
+    ubu-cli:   ntp-doc
+    ubu-cli: The following NEW packages will be installed:
+    ubu-cli:   libopts25 ntp sntp
+    ubu-cli: 0 upgraded, 3 newly installed, 0 to remove and 17 not upgraded.
+    ubu-cli: Need to get 785 kB of archives.
+    ubu-cli: After this operation, 2393 kB of additional disk space will be used.
+    ubu-cli: Do you want to continue? [Y/n] Abort.
+    ubu-cli: chmod: cannot access '/etc/ntp.conf': No such file or directory
+    ubu-cli: Failed to restart ntp.service: Unit ntp.service not found.
+    ubu-cli: restart: unrecognized service
+PS C:\tms\lesson4\work> vagrant snapshot pop ubu-cli
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Forcing shutdown of VM...
+==> ubu-cli: Restoring the snapshot 'push_1649282124_276'...
+==> ubu-cli: Deleting the snapshot 'push_1649282124_276'...
+==> ubu-cli: Snapshot deleted!
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: Resuming suspended VM...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2200
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> ubu-cli: flag to force provisioning. Provisioners marked to run always will still run.
+PS C:\tms\lesson4\work> vagrant snapshot push ubu-cli
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Snapshotting the machine as 'push_1649283011_2995'...
+==> ubu-cli: Snapshot saved! You can restore the snapshot at any time by
+==> ubu-cli: using `vagrant snapshot restore`. You can delete it using
+==> ubu-cli: `vagrant snapshot delete`.
+PS C:\tms\lesson4\work> vagrant snapshot push ubu-cli
+PS C:\tms\lesson4\work> ssh ntp-client
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 22:12:39 UTC 2022
+
+  System load:  0.0               Processes:             86
+  Usage of /:   2.8% of 38.71GB   Users logged in:       0
+  Memory usage: 25%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.2
+
+
+0 updates can be applied immediately.
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 21:15:50 2022 from 192.168.11.1
+vagrant@ntp-client:~$ sudo nano /etc/hosts
+vagrant@ntp-client:~$ sudo nano /etc/hosts
+vagrant@ntp-client:~$ vagrant@ntp-client:~$ sudo nano /etc/ntp.conf
+vagrant@ntp-client:~$ vagrant@ntp-client:~$ exit
+logout
+Connection to 192.168.11.2 closed.
+PS C:\tms\lesson4\work> ssh ntp-server
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 22:26:06 UTC 2022
+
+  System load:  0.0               Processes:             86
+  Usage of /:   3.3% of 38.71GB   Users logged in:       0
+  Memory usage: 26%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.20
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 21:42:18 2022 from 192.168.11.1
+vagrant@ntp-server:~$ sudo nano /etc/ntp.conf
+Use "fg" to return to nano.
+
+[1]+  Stopped                 sudo nano /etc/ntp.conf
+vagrant@ntp-server:~$ sudo echo "1" >> /etc/ntp.conf
+vagrant@ntp-server:~$ sudo nano /etc/ntp.conf
+vagrant@ntp-server:~$ exit
+logout
+There are stopped jobs.
+vagrant@ntp-server:~$ exit
+logout
+Connection to 192.168.11.20 closed.
+PS C:\tms\lesson4\work> ssh ntp-server
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 22:30:04 UTC 2022
+
+  System load:  0.0               Processes:             86
+  Usage of /:   3.3% of 38.71GB   Users logged in:       0
+  Memory usage: 26%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.20
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 22:26:06 2022 from 192.168.11.1
+vagrant@ntp-server:~$ sudo echo "root:vagrant" | chpasswd
+Changing password for root.
+chpasswd: (user root) pam_chauthtok() failed, error:
+Authentication token manipulation error
+chpasswd: (line 1, user root) password not changed
+vagrant@ntp-server:~$ exit
+logout
+Connection to 192.168.11.20 closed.
+PS C:\tms\lesson4\work> ssh ntp-client
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 22:31:00 UTC 2022
+
+  System load:  0.0               Processes:             84
+  Usage of /:   2.8% of 38.71GB   Users logged in:       0
+  Memory usage: 25%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.2
+
+
+0 updates can be applied immediately.
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 22:12:39 2022 from 192.168.11.1
+vagrant@ntp-client:~$ sudo echo "root:vagrant" | chpasswd
+Changing password for root.
+chpasswd: (user root) pam_chauthtok() failed, error:
+Authentication token manipulation error
+chpasswd: (line 1, user root) password not changed
+vagrant@ntp-client:~$ su root
+Password:
+su: Authentication failure
+vagrant@ntp-client:~$ su root
+Password:
+su: Authentication failure
+vagrant@ntp-client:~$ sudo echo "vagrant:vagrant" | chpasswd
+Changing password for vagrant.
+Password unchanged
+Password unchanged
+Password unchanged
+chpasswd: (user vagrant) pam_chauthtok() failed, error:
+Authentication token manipulation error
+chpasswd: (line 1, user vagrant) password not changed
+vagrant@ntp-client:~$ ls -l /etc/shadow
+-rw-r----- 1 root shadow 958 Apr  6 16:39 /etc/shadow
+vagrant@ntp-client:~$ sudo chmod 640 /etc/shadow
+vagrant@ntp-client:~$ sudo echo "root:vagrant" | chpasswd
+Changing password for root.
+chpasswd: (user root) pam_chauthtok() failed, error:
+Authentication token manipulation error
+chpasswd: (line 1, user root) password not changed
+vagrant@ntp-client:~$ sudo chmod 600 /etc/shadow
+vagrant@ntp-client:~$ sudo pam-auth-update
+vagrant@ntp-client:~$ exit
+logout
+Connection to 192.168.11.2 closed.
+PS C:\tms\lesson4\work> vagrant snapshot pop ubu-cli --no-delete
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Forcing shutdown of VM...
+==> ubu-cli: Restoring the snapshot 'push_1649283011_2995'...
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: Resuming suspended VM...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2200
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> ubu-cli: flag to force provisioning. Provisioners marked to run always will still run.
+PS C:\tms\lesson4\work> vagrant reload ubu-cli --provision
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Attempting graceful shutdown of VM...
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: Clearing any previously set forwarded ports...
+==> ubu-cli: Fixed port collision for 22 => 2222. Now on port 2200.
+==> ubu-cli: Clearing any previously set network interfaces...
+==> ubu-cli: Preparing network interfaces based on configuration...
+    ubu-cli: Adapter 1: nat
+    ubu-cli: Adapter 2: hostonly
+==> ubu-cli: Forwarding ports...
+    ubu-cli: 22 (guest) => 2200 (host) (adapter 1)
+==> ubu-cli: Running 'pre-boot' VM customizations...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2200
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+    ubu-cli: Warning: Connection reset. Retrying...
+    ubu-cli: Warning: Connection aborted. Retrying...
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Checking for guest additions in VM...
+    ubu-cli: The guest additions on this VM do not match the installed version of
+    ubu-cli: VirtualBox! In most cases this is fine, but in rare cases it can
+    ubu-cli: prevent things such as shared folders from working properly. If you see
+    ubu-cli: shared folder errors, please make sure the guest additions within the
+    ubu-cli: virtual machine match the version of VirtualBox you have installed on
+    ubu-cli: your host and reload your VM.
+    ubu-cli:
+    ubu-cli: Guest Additions Version: 5.2.42
+    ubu-cli: VirtualBox Version: 6.1
+==> ubu-cli: Setting hostname...
+==> ubu-cli: Configuring and enabling network interfaces...
+==> ubu-cli: Mounting shared folders...
+    ubu-cli: /vagrant => C:/tms/lesson4/work
+    ubu-cli: /home/vagrant/share => C:/tms/lesson4/share-cli
+==> ubu-cli: Running provisioner: shell...
+    ubu-cli: Running: C:/Users/demix/AppData/Local/Temp/vagrant-shell20220407-8616-1l065iv.sh
+    ubu-cli: Hit:1 http://archive.ubuntu.com/ubuntu bionic InRelease
+    ubu-cli: Get:2 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+    ubu-cli: Get:3 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+    ubu-cli: Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+    ubu-cli: Get:5 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2170 kB]
+    ubu-cli: Get:6 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+    ubu-cli: Get:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [380 kB]
+    ubu-cli: Get:8 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [690 kB]
+    ubu-cli: Get:9 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [94.1 kB]
+    ubu-cli: Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1187 kB]
+    ubu-cli: Get:11 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [273 kB]
+    ubu-cli: Get:12 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [17.6 kB]
+    ubu-cli: Get:13 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [3660 B]
+    ubu-cli: Get:14 http://archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+    ubu-cli: Get:15 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+    ubu-cli: Get:16 http://archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+    ubu-cli: Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [2517 kB]
+    ubu-cli: Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [472 kB]
+    ubu-cli: Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [714 kB]
+    ubu-cli: Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [98.0 kB]
+    ubu-cli: Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1802 kB]
+    ubu-cli: Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [390 kB]
+    ubu-cli: Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [24.8 kB]
+    ubu-cli: Get:24 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [6012 B]
+    ubu-cli: Get:25 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [10.8 kB]
+    ubu-cli: Get:26 http://archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [5016 B]
+    ubu-cli: Get:27 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [11.6 kB]
+    ubu-cli: Get:28 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [5864 B]
+    ubu-cli: Fetched 24.9 MB in 51s (488 kB/s)
+    ubu-cli: Reading package lists...
+    ubu-cli: Reading package lists...
+    ubu-cli: Building dependency tree...
+    ubu-cli: Reading state information...
+    ubu-cli: The following NEW packages will be installed:
+    ubu-cli:   ntpdate
+    ubu-cli: 0 upgraded, 1 newly installed, 0 to remove and 17 not upgraded.
+    ubu-cli: Need to get 51.3 kB of archives.
+    ubu-cli: After this operation, 183 kB of additional disk space will be used.
+    ubu-cli: Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 ntpdate amd64 1:4.2.8p10+dfsg-5ubuntu7.3 [51.3 kB]
+    ubu-cli: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+    ubu-cli: Fetched 51.3 kB in 1s (81.6 kB/s)
+    ubu-cli: Selecting previously unselected package ntpdate.
+(Reading database ... 60142 files and directories currently installed.)
+    ubu-cli: Preparing to unpack .../ntpdate_1%3a4.2.8p10+dfsg-5ubuntu7.3_amd64.deb ...
+    ubu-cli: Unpacking ntpdate (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Setting up ntpdate (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+    ubu-cli: Reading package lists...
+    ubu-cli: Building dependency tree...
+    ubu-cli: Reading state information...
+    ubu-cli: The following additional packages will be installed:
+    ubu-cli:   libopts25 sntp
+    ubu-cli: Suggested packages:
+    ubu-cli:   ntp-doc
+    ubu-cli: The following NEW packages will be installed:
+    ubu-cli:   libopts25 ntp sntp
+    ubu-cli: 0 upgraded, 3 newly installed, 0 to remove and 17 not upgraded.
+    ubu-cli: Need to get 785 kB of archives.
+    ubu-cli: After this operation, 2393 kB of additional disk space will be used.
+    ubu-cli: Get:1 http://archive.ubuntu.com/ubuntu bionic/universe amd64 libopts25 amd64 1:5.18.12-4 [58.2 kB]
+    ubu-cli: Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 ntp amd64 1:4.2.8p10+dfsg-5ubuntu7.3 [640 kB]
+    ubu-cli: Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 sntp amd64 1:4.2.8p10+dfsg-5ubuntu7.3 [86.5 kB]
+    ubu-cli: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+    ubu-cli: Fetched 785 kB in 2s (411 kB/s)
+    ubu-cli: Selecting previously unselected package libopts25:amd64.
+(Reading database ... 60156 files and directories currently installed.)
+    ubu-cli: Preparing to unpack .../libopts25_1%3a5.18.12-4_amd64.deb ...
+    ubu-cli: Unpacking libopts25:amd64 (1:5.18.12-4) ...
+    ubu-cli: Selecting previously unselected package ntp.
+    ubu-cli: Preparing to unpack .../ntp_1%3a4.2.8p10+dfsg-5ubuntu7.3_amd64.deb ...
+    ubu-cli: Unpacking ntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Selecting previously unselected package sntp.
+    ubu-cli: Preparing to unpack .../sntp_1%3a4.2.8p10+dfsg-5ubuntu7.3_amd64.deb ...
+    ubu-cli: Unpacking sntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Setting up libopts25:amd64 (1:5.18.12-4) ...
+    ubu-cli: Setting up sntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Setting up ntp (1:4.2.8p10+dfsg-5ubuntu7.3) ...
+    ubu-cli: Created symlink /etc/systemd/system/network-pre.target.wants/ntp-systemd-netif.path → /lib/systemd/system/ntp-systemd-netif.path.
+    ubu-cli: Created symlink /etc/systemd/system/multi-user.target.wants/ntp.service → /lib/systemd/system/ntp.service.
+    ubu-cli: ntp-systemd-netif.service is a disabled or a static unit, not starting it.
+    ubu-cli: Processing triggers for systemd (237-3ubuntu10.53) ...
+    ubu-cli: Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+    ubu-cli: Processing triggers for ureadahead (0.100.0-21) ...
+    ubu-cli: Processing triggers for libc-bin (2.27-3ubuntu1.5) ...
+PS C:\tms\lesson4\work> ssh ntp-client
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 22:42:35 UTC 2022
+
+  System load:  0.6               Processes:             89
+  Usage of /:   3.3% of 38.71GB   Users logged in:       0
+  Memory usage: 26%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.2
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 21:15:50 2022 from 192.168.11.1
+vagrant@ntp-client:~$ sudo cat /etc/hosts
+127.0.0.1       localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost   ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+127.0.1.1       ubuntu-bionic   ubuntu-bionic
+
+127.0.2.1 ntp-client ntp-client
+/n192.168.11.20   NTP-server-host
+vagrant@ntp-client:~$ sudo nano /etc/hosts
+vagrant@ntp-client:~$ sudo cat /etc/hosts
+127.0.0.1       localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost   ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+127.0.1.1       ubuntu-bionic   ubuntu-bionic
+
+127.0.2.1 ntp-client ntp-client
+192.168.11.20   NTP-server-host
+vagrant@ntp-client:~$ sudo bash ~/share-cli/script.sh
+bash: /home/vagrant/share-cli/script.sh: No such file or directory
+vagrant@ntp-client:~$ sudo bash ~/share/script.sh
+vagrant@ntp-client:~$ sudo cat /etc/ntp.conf
+# /etc/ntp.conf, configuration for ntpd; see ntp.conf(5) for help
+
+driftfile /var/lib/ntp/ntp.drift
+
+# Leap seconds definition provided by tzdata
+leapfile /usr/share/zoneinfo/leap-seconds.list
+
+# Enable this if you want statistics to be logged.
+#statsdir /var/log/ntpstats/
+
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+
+# Specify one or more NTP servers.
+
+# Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
+# on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
+# more information.
+pool 0.ubuntu.pool.ntp.org iburst
+pool 1.ubuntu.pool.ntp.org iburst
+pool 2.ubuntu.pool.ntp.org iburst
+pool 3.ubuntu.pool.ntp.org iburst
+
+# Use Ubuntu's ntp server as a fallback.
+pool ntp.ubuntu.com
+
+# Access control configuration; see /usr/share/doc/ntp-doc/html/accopt.html for
+# details.  The web page <http://support.ntp.org/bin/view/Support/AccessRestrictions>
+# might also be helpful.
+#
+# Note that "restrict" applies to both servers and clients, so a configuration
+# that might be intended to block requests from certain clients could also end
+# up blocking replies from your own upstream servers.
+
+# By default, exchange time with everybody, but don't allow configuration.
+restrict -4 default kod notrap nomodify nopeer noquery limited
+restrict -6 default kod notrap nomodify nopeer noquery limited
+
+# Local users may interrogate the ntp server more closely.
+restrict 127.0.0.1
+restrict ::1
+
+# Needed for adding pool entries
+restrict source notrap nomodify noquery
+
+# Clients from this (example!) subnet have unlimited access, but only if
+# cryptographically authenticated.
+#restrict 192.168.123.0 mask 255.255.255.0 notrust
+
+
+# If you want to provide time to your local subnet, change the next line.
+# (Again, the address is an example only.)
+#broadcast 192.168.123.255
+
+# If you want to listen to time broadcasts on your local subnet, de-comment the
+# next lines.  Please do this only if you trust everybody on the network!
+#disable auth
+#broadcastclient
+
+#Changes recquired to use pps synchonisation as explained in documentation:
+#http://www.ntp.org/ntpfaq/NTP-s-config-adv.htm#AEN3918
+
+#server 127.127.8.1 mode 135 prefer    # Meinberg GPS167 with PPS
+#fudge 127.127.8.1 time1 0.0042        # relative to PPS for my hardware
+
+#server 127.127.22.1                   # ATOM(PPS)
+#fudge 127.127.22.1 flag3 1            # enable PPS API
+
+server NTP-server-host prefer iburst
+vagrant@ntp-client:~$ ntpdate NTP-server-host
+ 6 Apr 22:47:19 ntpdate[15001]: bind() fails: Permission denied
+vagrant@ntp-client:~$ sudo ntpdate NTP-server-host
+ 6 Apr 22:47:25 ntpdate[15003]: the NTP socket is in use, exiting
+vagrant@ntp-client:~$ sudo service ntp stop
+vagrant@ntp-client:~$ sudo ntpdate NTP-server-host
+ 6 Apr 22:50:06 ntpdate[15178]: adjust time server 192.168.11.20 offset 0.199955 sec
+vagrant@ntp-client:~$ crontab -l
+no crontab for vagrant
+vagrant@ntp-client:~$ ls mycron
+mycron
+vagrant@ntp-client:~$ cat mycron
+0-5 * * * * sudo ntpdate NTP-server-host
+vagrant@ntp-client:~$ crontab mycron
+vagrant@ntp-client:~$ crontab -l
+0-5 * * * * sudo ntpdate NTP-server-host
+vagrant@ntp-client:~$ exit
+logout
+Connection to 192.168.11.2 closed.
+PS C:\tms\lesson4\work> ssh ntp-client
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr  6 23:04:15 UTC 2022
+
+  System load:  0.0               Processes:             85
+  Usage of /:   3.3% of 38.71GB   Users logged in:       0
+  Memory usage: 25%               IP address for enp0s3: 10.0.2.15
+  Swap usage:   0%                IP address for enp0s8: 192.168.11.2
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 22:42:36 2022 from 192.168.11.1
+vagrant@ntp-client:~$ apt search nginx
+Sorting... Done
+Full Text Search... Done
+collectd-core/bionic-updates 5.7.2-2ubuntu1.2 amd64
+  statistics collection and monitoring daemon (core system)
+
+coquelicot/bionic 0.9.6-1ubuntu1 all
+  "one-click" file sharing web application with a focus on users' privacy
+
+diaspora-installer/bionic 0.7.3.1+debian2ubuntu2 all
+  distributed social networking service - installer
+
+diaspora-installer-mysql/bionic 0.7.3.1+debian2ubuntu2 all
+  distributed social networking service - installer (with MySQL)
+
+fcgiwrap/bionic 1.1.0-10 amd64
+  simple server to run CGI applications over FastCGI
+
+gitlab-workhorse/bionic 0.8.5+debian-3 amd64
+  unloads Git HTTP traffic from the GitLab Rails app (Unicorn)
+
+gitweb/bionic-updates,bionic-security 1:2.17.1-1ubuntu0.9 all
+  fast, scalable, distributed revision control system (web interface)
+
+golang-github-gorilla-handlers-dev/bionic 1.1-3 all
+  collection of useful handlers for Go's net/http package
+
+golang-github-hashicorp-hcl-dev/bionic 0.0~git20170509.0.392dba7-1 all
+  Go implementation of HashiCorp Configuration Language
+
+gunicorn/bionic 19.7.1-4 all
+  Event-based HTTP/WSGI server (Python 2 version)
+
+gunicorn-examples/bionic 19.7.1-4 all
+  Event-based HTTP/WSGI server (examples)
+
+gunicorn3/bionic 19.7.1-4 all
+  Event-based HTTP/WSGI server (Python 3 version)
+
+kopano-webapp-nginx/bionic 3.4.6+dfsg1-1 all
+  WebApp for the Kopano Collaboration Platform - Nginx
+
+lemonldap-ng-fastcgi-server/bionic 1.9.16-2 all
+  Lemonldap::NG FastCGI server
+
+lemonldap-ng-handler/bionic 1.9.16-2 all
+  Lemonldap::NG handler part
+
+libluasandbox-bin/bionic 1.2.1-4 amd64
+  Generic Lua sandbox library for dynamic data analysis – utilities
+
+libluasandbox-dev/bionic 1.2.1-4 amd64
+  Generic Lua sandbox library for dynamic data analysis – development files
+
+libluasandbox0/bionic 1.2.1-4 amd64
+  Generic Lua sandbox library for dynamic data analysis — dynamic library
+
+libnginx-mod-http-auth-pam/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  PAM authentication module for Nginx
+
+libnginx-mod-http-cache-purge/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Purge content from Nginx caches
+
+libnginx-mod-http-dav-ext/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  WebDAV missing commands support for Nginx
+
+libnginx-mod-http-echo/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Bring echo and more shell style goodies to Nginx
+
+libnginx-mod-http-fancyindex/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Fancy indexes module for the Nginx
+
+libnginx-mod-http-geoip/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  GeoIP HTTP module for Nginx
+
+libnginx-mod-http-headers-more-filter/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Set and clear input and output headers for Nginx
+
+libnginx-mod-http-image-filter/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  HTTP image filter module for Nginx
+
+libnginx-mod-http-lua/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Lua module for Nginx
+
+libnginx-mod-http-ndk/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Nginx Development Kit module
+
+libnginx-mod-http-perl/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Perl module for Nginx
+
+libnginx-mod-http-subs-filter/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Substitution filter module for Nginx
+
+libnginx-mod-http-uploadprogress/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Upload progress system for Nginx
+
+libnginx-mod-http-upstream-fair/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Nginx Upstream Fair Proxy Load Balancer
+
+libnginx-mod-http-xslt-filter/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  XSLT Transformation module for Nginx
+
+libnginx-mod-mail/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Mail module for Nginx
+
+libnginx-mod-nchan/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Fast, flexible pub/sub server for Nginx
+
+libnginx-mod-rtmp/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  RTMP support for Nginx
+
+libnginx-mod-stream/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  Stream module for Nginx
+
+libplack-middleware-file-sass-perl/bionic 0.03-4 all
+  Sass and SCSS support for all Plack-based PSGI frameworks
+
+lua-nginx-cookie/bionic 0.1.0-1 all
+  Pure Lua cookie parser for the nginx embedded Lua language
+
+lua-nginx-dns/bionic 0.20-1 all
+  DNS resolver for the nginx embedded Lua language
+
+lua-nginx-kafka/bionic 0.06-1 all
+  Pure Lua Kafka producer for the nginx embedded Lua language
+
+lua-nginx-memcached/bionic 0.10-1 all
+  Pure Lua memcached client driver for the nginx embedded Lua language
+
+lua-nginx-redis/bionic 0.26-1 all
+  Pure Lua redis client driver for the nginx embedded Lua language
+
+lua-nginx-redis-connector/bionic 0.06-1 all
+  Connection utilities for lua-nginx-redis
+
+lua-nginx-string/bionic 0.10-1 all
+  String utilities for the nginx embedded Lua language
+
+lua-nginx-websocket/bionic 0.06-1 all
+  Lua websocket client driver for the nginx embedded Lua language
+
+mighttpd2/bionic 3.4.1-2 amd64
+  classical web server on WAI/warp
+
+nginx/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 all
+  small, powerful, scalable web/proxy server
+
+nginx-common/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 all
+  small, powerful, scalable web/proxy server - common files
+
+nginx-core/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  nginx web/proxy server (standard version)
+
+nginx-doc/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 all
+  small, powerful, scalable web/proxy server - documentation
+
+nginx-extras/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  nginx web/proxy server (extended version)
+
+nginx-full/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  nginx web/proxy server (standard version)
+
+nginx-light/bionic-updates,bionic-security 1.14.0-0ubuntu1.9 amd64
+  nginx web/proxy server (basic version)
+
+php-symfony-web-server-bundle/bionic-updates,bionic-security 3.4.6+dfsg-1ubuntu0.1 all
+  provide commands for applications using the PHP built-in web server
+
+python-certbot-nginx/bionic 0.23.0-1 all
+  transitional dummy package
+
+python-certbot-nginx-doc/bionic 0.23.0-1 all
+  Nginx plugin documentation for Certbot
+
+python-django-downloadview/bionic 1.9-1 all
+  efficient static file serving with Django
+
+python-django-websocket-redis/bionic 0.4.7-1 all
+  Websockets for Django applications using Redis (Python2 version)
+
+python-gunicorn/bionic 19.7.1-4 all
+  Event-based HTTP/WSGI server (Python 2 libraries)
+
+python-reconfigure/bionic 0.1.74+git49a20890-3 all
+  simple config file management library (Python 2)
+
+python-whitenoise/bionic 3.3.1-1 all
+  static file serving for WSGI applications (Python 2)
+
+python3-certbot-nginx/bionic 0.23.0-1 all
+  Nginx plugin for Certbot
+
+python3-django-downloadview/bionic 1.9-1 all
+  efficient static file serving with Django (Python3 version)
+
+python3-django-websocket-redis/bionic 0.4.7-1 all
+  Websockets for Django applications using Redis (Python3 version)
+
+python3-gunicorn/bionic 19.7.1-4 all
+  Event-based HTTP/WSGI server (Python 3 libraries)
+
+python3-reconfigure/bionic 0.1.74+git49a20890-3 all
+  simple config file management library (Python 3)
+
+python3-whitenoise/bionic 3.3.1-1 all
+  static file serving for WSGI applications (Python 3)
+
+resource-agents/bionic-updates 1:4.1.0~rc1-1ubuntu1.3 amd64
+  Cluster Resource Agents
+
+rt4-fcgi/bionic 4.4.2-2 all
+  External FastCGI support for request-tracker4
+
+viewvc/bionic 1.1.26-1 all
+  web interface for CVS and/or Subversion repositories
+
+vagrant@ntp-client:~$ apt-get install -y nginx
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+vagrant@ntp-client:~$ sudo apt-get install -y nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6
+  libxpm4 nginx-common nginx-core
+Suggested packages:
+  libgd-tools fcgiwrap nginx-doc ssl-cert
+The following NEW packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6
+  libxpm4 nginx nginx-common nginx-core
+0 upgraded, 18 newly installed, 0 to remove and 17 not upgraded.
+Need to get 2461 kB of archives.
+After this operation, 8210 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libjpeg-turbo8 amd64 1.5.2-0ubuntu5.18.04.4 [110 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic/main amd64 fonts-dejavu-core all 2.37-1 [1041 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic/main amd64 fontconfig-config all 2.12.6-0ubuntu2 [55.8 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic/main amd64 libfontconfig1 amd64 2.12.6-0ubuntu2 [137 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/main amd64 libjpeg8 amd64 8c-2ubuntu8 [2194 B]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/main amd64 libjbig0 amd64 2.1-3.1build1 [26.7 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtiff5 amd64 4.0.9-5ubuntu0.4 [153 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libwebp6 amd64 0.6.1-2ubuntu0.18.04.1 [186 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic/main amd64 libxpm4 amd64 1:3.5.12-1 [34.0 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgd3 amd64 2.2.5-4ubuntu0.5 [119 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 nginx-common all 1.14.0-0ubuntu1.9 [37.2 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnginx-mod-http-geoip amd64 1.14.0-0ubuntu1.9 [11.0 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnginx-mod-http-image-filter amd64 1.14.0-0ubuntu1.9 [14.3 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnginx-mod-http-xslt-filter amd64 1.14.0-0ubuntu1.9 [12.7 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnginx-mod-mail amd64 1.14.0-0ubuntu1.9 [41.6 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnginx-mod-stream amd64 1.14.0-0ubuntu1.9 [63.5 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 nginx-core amd64 1.14.0-0ubuntu1.9 [413 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 nginx all 1.14.0-0ubuntu1.9 [3596 B]
+Fetched 2461 kB in 7s (350 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package libjpeg-turbo8:amd64.
+(Reading database ... 60230 files and directories currently installed.)
+Preparing to unpack .../00-libjpeg-turbo8_1.5.2-0ubuntu5.18.04.4_amd64.deb ...
+Unpacking libjpeg-turbo8:amd64 (1.5.2-0ubuntu5.18.04.4) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../01-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../02-fontconfig-config_2.12.6-0ubuntu2_all.deb ...
+Unpacking fontconfig-config (2.12.6-0ubuntu2) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../03-libfontconfig1_2.12.6-0ubuntu2_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.12.6-0ubuntu2) ...
+Selecting previously unselected package libjpeg8:amd64.
+Preparing to unpack .../04-libjpeg8_8c-2ubuntu8_amd64.deb ...
+Unpacking libjpeg8:amd64 (8c-2ubuntu8) ...
+Selecting previously unselected package libjbig0:amd64.
+Preparing to unpack .../05-libjbig0_2.1-3.1build1_amd64.deb ...
+Unpacking libjbig0:amd64 (2.1-3.1build1) ...
+Selecting previously unselected package libtiff5:amd64.
+Preparing to unpack .../06-libtiff5_4.0.9-5ubuntu0.4_amd64.deb ...
+Unpacking libtiff5:amd64 (4.0.9-5ubuntu0.4) ...
+Selecting previously unselected package libwebp6:amd64.
+Preparing to unpack .../07-libwebp6_0.6.1-2ubuntu0.18.04.1_amd64.deb ...
+Unpacking libwebp6:amd64 (0.6.1-2ubuntu0.18.04.1) ...
+Selecting previously unselected package libxpm4:amd64.
+Preparing to unpack .../08-libxpm4_1%3a3.5.12-1_amd64.deb ...
+Unpacking libxpm4:amd64 (1:3.5.12-1) ...
+Selecting previously unselected package libgd3:amd64.
+Preparing to unpack .../09-libgd3_2.2.5-4ubuntu0.5_amd64.deb ...
+Unpacking libgd3:amd64 (2.2.5-4ubuntu0.5) ...
+Selecting previously unselected package nginx-common.
+Preparing to unpack .../10-nginx-common_1.14.0-0ubuntu1.9_all.deb ...
+Unpacking nginx-common (1.14.0-0ubuntu1.9) ...
+Selecting previously unselected package libnginx-mod-http-geoip.
+Preparing to unpack .../11-libnginx-mod-http-geoip_1.14.0-0ubuntu1.9_amd64.deb ...
+Unpacking libnginx-mod-http-geoip (1.14.0-0ubuntu1.9) ...
+Selecting previously unselected package libnginx-mod-http-image-filter.
+Preparing to unpack .../12-libnginx-mod-http-image-filter_1.14.0-0ubuntu1.9_amd64.deb ...
+Unpacking libnginx-mod-http-image-filter (1.14.0-0ubuntu1.9) ...
+Selecting previously unselected package libnginx-mod-http-xslt-filter.
+Preparing to unpack .../13-libnginx-mod-http-xslt-filter_1.14.0-0ubuntu1.9_amd64.deb ...
+Unpacking libnginx-mod-http-xslt-filter (1.14.0-0ubuntu1.9) ...
+Selecting previously unselected package libnginx-mod-mail.
+Preparing to unpack .../14-libnginx-mod-mail_1.14.0-0ubuntu1.9_amd64.deb ...
+Unpacking libnginx-mod-mail (1.14.0-0ubuntu1.9) ...
+Selecting previously unselected package libnginx-mod-stream.
+Preparing to unpack .../15-libnginx-mod-stream_1.14.0-0ubuntu1.9_amd64.deb ...
+Unpacking libnginx-mod-stream (1.14.0-0ubuntu1.9) ...
+Selecting previously unselected package nginx-core.
+Preparing to unpack .../16-nginx-core_1.14.0-0ubuntu1.9_amd64.deb ...
+Unpacking nginx-core (1.14.0-0ubuntu1.9) ...
+Selecting previously unselected package nginx.
+Preparing to unpack .../17-nginx_1.14.0-0ubuntu1.9_all.deb ...
+Unpacking nginx (1.14.0-0ubuntu1.9) ...
+Setting up libjbig0:amd64 (2.1-3.1build1) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up nginx-common (1.14.0-0ubuntu1.9) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+Setting up libjpeg-turbo8:amd64 (1.5.2-0ubuntu5.18.04.4) ...
+Setting up libnginx-mod-mail (1.14.0-0ubuntu1.9) ...
+Setting up libxpm4:amd64 (1:3.5.12-1) ...
+Setting up libnginx-mod-http-xslt-filter (1.14.0-0ubuntu1.9) ...
+Setting up libnginx-mod-http-geoip (1.14.0-0ubuntu1.9) ...
+Setting up libwebp6:amd64 (0.6.1-2ubuntu0.18.04.1) ...
+Setting up libjpeg8:amd64 (8c-2ubuntu8) ...
+Setting up fontconfig-config (2.12.6-0ubuntu2) ...
+Setting up libnginx-mod-stream (1.14.0-0ubuntu1.9) ...
+Setting up libtiff5:amd64 (4.0.9-5ubuntu0.4) ...
+Setting up libfontconfig1:amd64 (2.12.6-0ubuntu2) ...
+Setting up libgd3:amd64 (2.2.5-4ubuntu0.5) ...
+Setting up libnginx-mod-http-image-filter (1.14.0-0ubuntu1.9) ...
+Setting up nginx-core (1.14.0-0ubuntu1.9) ...
+Setting up nginx (1.14.0-0ubuntu1.9) ...
+Processing triggers for systemd (237-3ubuntu10.53) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ufw (0.36-0ubuntu0.18.04.2) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.5) ...
+vagrant@ntp-client:~$ sudo systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2022-04-06 23:07:50 UTC; 1min 20s ago
+     Docs: man:nginx(8)
+ Main PID: 15797 (nginx)
+    Tasks: 2 (limit: 546)
+   CGroup: /system.slice/nginx.service
+           ├─15797 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+           └─15799 nginx: worker process
+
+Apr 06 23:07:50 ntp-client systemd[1]: Starting A high performance web server and a reverse proxy server...
+Apr 06 23:07:50 ntp-client systemd[1]: nginx.service: Failed to parse PID from file /run/nginx.pid: Invalid argument
+Apr 06 23:07:50 ntp-client systemd[1]: Started A high performance web server and a reverse proxy server.
+vagrant@ntp-client:~$ exit
+logout
+Connection to 192.168.11.2 closed.
+PS C:\tms\lesson4\work> vagrant reload ubu-cli
+==> vagrant: You have requested to enabled the experimental flag with the following features:
+==> vagrant:
+==> vagrant: Features:  disks
+==> vagrant:
+==> vagrant: Please use with caution, as some of the features may not be fully
+==> vagrant: functional yet.
+==> ubu-cli: Attempting graceful shutdown of VM...
+==> ubu-cli: Checking if box 'ubuntu/bionic64' version '20220325.0.0' is up to date...
+==> ubu-cli: There was a problem while downloading the metadata for your box
+==> ubu-cli: to check for updates. This is not an error, since it is usually due
+==> ubu-cli: to temporary network problems. This is just a warning. The problem
+==> ubu-cli: encountered was:
+==> ubu-cli:
+==> ubu-cli: The requested URL returned error: 404
+==> ubu-cli:
+==> ubu-cli: If you want to check for box updates, verify your network connection
+==> ubu-cli: is valid and try again.
+==> ubu-cli: Clearing any previously set forwarded ports...
+==> ubu-cli: Fixed port collision for 22 => 2222. Now on port 2200.
+==> ubu-cli: Clearing any previously set network interfaces...
+==> ubu-cli: Preparing network interfaces based on configuration...
+    ubu-cli: Adapter 1: nat
+    ubu-cli: Adapter 2: hostonly
+==> ubu-cli: Forwarding ports...
+    ubu-cli: 22 (guest) => 2200 (host) (adapter 1)
+==> ubu-cli: Running 'pre-boot' VM customizations...
+==> ubu-cli: Booting VM...
+==> ubu-cli: Waiting for machine to boot. This may take a few minutes...
+    ubu-cli: SSH address: 127.0.0.1:2200
+    ubu-cli: SSH username: vagrant
+    ubu-cli: SSH auth method: private key
+==> ubu-cli: Machine booted and ready!
+==> ubu-cli: Checking for guest additions in VM...
+    ubu-cli: The guest additions on this VM do not match the installed version of
+    ubu-cli: VirtualBox! In most cases this is fine, but in rare cases it can
+    ubu-cli: prevent things such as shared folders from working properly. If you see
+    ubu-cli: shared folder errors, please make sure the guest additions within the
+    ubu-cli: virtual machine match the version of VirtualBox you have installed on
+    ubu-cli: your host and reload your VM.
+    ubu-cli:
+    ubu-cli: Guest Additions Version: 5.2.42
+    ubu-cli: VirtualBox Version: 6.1
+==> ubu-cli: Setting hostname...
+==> ubu-cli: Configuring and enabling network interfaces...
+==> ubu-cli: Mounting shared folders...
+    ubu-cli: /vagrant => C:/tms/lesson4/work
+    ubu-cli: /home/vagrant/share => C:/tms/lesson4/share-cli
+==> ubu-cli: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> ubu-cli: flag to force provisioning. Provisioners marked to run always will still run.
+PS C:\tms\lesson4\work> ssh ntp-client
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+
+20 updates can be applied immediately.
+18 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Apr  6 23:04:16 2022 from 192.168.11.1
+vagrant@ntp-client:~$ ls /vagrant
+Vagrantfile  logs  ubuntu-bionic-18.04-cloudimg-console.log
+vagrant@ntp-client:~$ sudo systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2022-04-06 23:13:54 UTC; 44s ago
+     Docs: man:nginx(8)
+  Process: 1057 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+  Process: 831 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+ Main PID: 1064 (nginx)
+    Tasks: 2 (limit: 546)
+   CGroup: /system.slice/nginx.service
+           ├─1064 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+           └─1065 nginx: worker process
+
+Apr 06 23:13:52 ntp-client systemd[1]: Starting A high performance web server and a reverse proxy server...
+Apr 06 23:13:54 ntp-client systemd[1]: Started A high performance web server and a reverse proxy server.
+vagrant@ntp-client:~$
