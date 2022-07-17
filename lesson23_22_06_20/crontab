@@ -1,0 +1,2 @@
+@hourly /vagrant/mysql_backup_script.sh >/dev/null 2>&1
+@hourly /vagrant/pgsql_backup_script.sh >/dev/null 2>&1
